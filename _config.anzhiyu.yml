@@ -20,7 +20,19 @@ nav:
   travelling: false
   clock: false
   menu:
-
+    - title: 网页
+      item:
+        - name: 主站
+          link: https://heishao.me
+          icon: 
+        - name: 博客
+          link: https://blog.anheyu.com/
+          icon: /img/favicon.ico
+    - title: 项目
+      item:
+        - name: 安知鱼图床
+          link: https://image.anheyu.com/
+          icon: https://image.anheyu.com/favicon.ico
 
 # mourn （哀悼日，指定日期网站简单变灰，不包括滚动条）
 # 注意： 仅网站首页变灰，其他页面正常显示
@@ -45,7 +57,7 @@ copy:
   enable: true
   copyright:
     enable: true
-    limit_count: 49
+    limit_count: 50
 
 # social settings (社交图标设置)
 # formal:
