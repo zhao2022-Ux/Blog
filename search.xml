@@ -903,27 +903,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CF382B Number Busters</title>
-    <url>/article/sol-CF382B/</url>
-    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/CF382B">CF382B Number Busters</a>。</p>
-<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><blockquote>
-<p>两个人玩游戏，他们有 $a$，$b$，$w$，$x$，$c$ 五个数，每秒可执行一次操作，要使最终结果为 $c\le a$。操作如下：如果 $b\ge x$，则 $b=b-x$，同时 $c=c-1$；如果 $b&lt;x$，则 $a=a-1$，$c=c-1$，$b=w-(x-b)$。求 $c\le a$  时已经走过的秒数。</p>
-</blockquote>
-<p>题目已经说的很清楚了，按照模拟即可。</p>
-<p>在 $c&lt;a$ 时，执行以下操作：</p>
-<ul>
-<li>$b \ge x$ 时，$b=b−1$，$c=c−1$。</li>
-<li>$b &lt; x$ 时，$a=a−1$，$c=c − 1$，$b=w−x+b$。</li>
-</ul>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line">	</span><br><span class="line">	LL a , b , w , x , c;</span><br><span class="line">	cin &gt;&gt; a &gt;&gt; b &gt;&gt; w &gt;&gt; x &gt;&gt; c; <span class="comment">//5个数字</span></span><br><span class="line">	</span><br><span class="line">	LL ans = <span class="number">0</span>; <span class="comment">//最后的秒数</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(c &gt; a) <span class="comment">//模拟</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b &gt;= x)</span><br><span class="line">			b -= x , c --;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(b &lt; x)</span><br><span class="line">			a -- , c -- , b = w - (x - b);</span><br><span class="line">		</span><br><span class="line">		ans ++; <span class="comment">//秒数++</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>洛谷题解</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>✨五分钟从零搭建自己的图床</title>
     <url>/article/PicX/</url>
     <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在洛谷，拥有洛谷图床。但是，洛谷图床有些时候对用户名颜色、文件大小等有要求。于是，小编今天教你<strong>不用代码</strong>，五分钟搭建一个属于自己的个人图床。</p>
@@ -1007,6 +986,27 @@
       </tags>
   </entry>
   <entry>
+    <title>CF382B Number Busters</title>
+    <url>/article/sol-CF382B/</url>
+    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/CF382B">CF382B Number Busters</a>。</p>
+<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><blockquote>
+<p>两个人玩游戏，他们有 $a$，$b$，$w$，$x$，$c$ 五个数，每秒可执行一次操作，要使最终结果为 $c\le a$。操作如下：如果 $b\ge x$，则 $b=b-x$，同时 $c=c-1$；如果 $b&lt;x$，则 $a=a-1$，$c=c-1$，$b=w-(x-b)$。求 $c\le a$  时已经走过的秒数。</p>
+</blockquote>
+<p>题目已经说的很清楚了，按照模拟即可。</p>
+<p>在 $c&lt;a$ 时，执行以下操作：</p>
+<ul>
+<li>$b \ge x$ 时，$b=b−1$，$c=c−1$。</li>
+<li>$b &lt; x$ 时，$a=a−1$，$c=c − 1$，$b=w−x+b$。</li>
+</ul>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line">	</span><br><span class="line">	LL a , b , w , x , c;</span><br><span class="line">	cin &gt;&gt; a &gt;&gt; b &gt;&gt; w &gt;&gt; x &gt;&gt; c; <span class="comment">//5个数字</span></span><br><span class="line">	</span><br><span class="line">	LL ans = <span class="number">0</span>; <span class="comment">//最后的秒数</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(c &gt; a) <span class="comment">//模拟</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b &gt;= x)</span><br><span class="line">			b -= x , c --;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(b &lt; x)</span><br><span class="line">			a -- , c -- , b = w - (x - b);</span><br><span class="line">		</span><br><span class="line">		ans ++; <span class="comment">//秒数++</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>洛谷题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>P10264 [GESP202403 八级] 接竹竿</title>
     <url>/article/sol-P10264/</url>
     <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/p10264">P10264 [GESP202403 八级] 接竹竿</a></p>
@@ -1050,18 +1050,6 @@
 <h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;18</span><br></pre></td></tr></table></figure>
 </blockquote>
 <p>代码模拟即可。</p>
-]]></content>
-      <categories>
-        <category>洛谷题解</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>P10401 「XSOI-R1」区间操作</title>
-    <url>/article/sol-P10401/</url>
-    <content><![CDATA[<p>由于 Hexo 无法转义，详见原文：<a href="https://www.luogu.com.cn/article/2ifgwc5e。">https://www.luogu.com.cn/article/2ifgwc5e。</a></p>
 ]]></content>
       <categories>
         <category>洛谷题解</category>
@@ -1124,6 +1112,18 @@
       </tags>
   </entry>
   <entry>
+    <title>P10401 「XSOI-R1」区间操作</title>
+    <url>/article/sol-P10401/</url>
+    <content><![CDATA[<p>由于 Hexo 无法转义，详见原文：<a href="https://www.luogu.com.cn/article/2ifgwc5e。">https://www.luogu.com.cn/article/2ifgwc5e。</a></p>
+]]></content>
+      <categories>
+        <category>洛谷题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>P10415 [蓝桥杯 2023 国 A] 切割</title>
     <url>/article/sol-P10415/</url>
     <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P10415">P10415 [蓝桥杯 2023 国 A] 切割【暂无数据】</a>。</p>
@@ -1169,12 +1169,12 @@ ANS=\frac{W\times H}{\operatorname{LCF^2}}</script><h3 id="Code"><a href="#Code"
       </tags>
   </entry>
   <entry>
-    <title>P10522 [XJTUPC2024] 雪中楼</title>
-    <url>/article/sol-P10522/</url>
-    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/p10522">P10522 [XJTUPC2024] 雪中楼</a>。</p>
-<p>由于 $n \le 2 \times 10^5$，插入次数太多，考虑维护链表。</p>
-<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>对于每次操作，输入 $a_i$，若 $i=0$ 就将 $a_i$ 插到链表尾部，否则插到 $a_i$ 左边，最后翻转完输出，就这么简单。</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXN 2e5 + 10</span></span><br><span class="line"></span><br><span class="line">list &lt;<span class="type">int</span>&gt; l;</span><br><span class="line">list &lt;<span class="type">int</span>&gt; :: iterator number[<span class="built_in">int</span>(MAXN)] = </span><br><span class="line">&#123;</span><br><span class="line">	l.<span class="built_in">begin</span>() , l.<span class="built_in">end</span>()</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">main</span>()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt;= n ; i ++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> x;</span><br><span class="line">		cin &gt;&gt; x;</span><br><span class="line">		</span><br><span class="line">		number[i] = l.<span class="built_in">insert</span>(number[x] , i); <span class="comment">//插入函数</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">reverse</span>(l.<span class="built_in">begin</span>() , l.<span class="built_in">end</span>()); <span class="comment">//翻转</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(list &lt;<span class="type">int</span>&gt; :: iterator it = l.<span class="built_in">begin</span>() ; it != l.<span class="built_in">end</span>() ; it ++) <span class="comment">// 迭代器</span></span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <title>P10520 [XJTUPC2024] 榕树之心</title>
+    <url>/article/sol-P10520/</url>
+    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/p10520">P10520 [XJTUPC2024] 榕树之心</a>。</p>
+<p>求：</p>
+<script type="math/tex; mode=display">x^{\prime} = \frac{1}{2} x + \frac{1}{2} y</script><script type="math/tex; mode=display">y^{\prime} = \frac{\sqrt{3}}{2} x - \frac{\sqrt{3}}{2} y</script><h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>直接模拟即可（运算记得带小数）。<br>| 式子 | 作用 |<br>| :—————: | :—————: |<br>| $\frac{1}{2}x$ | $x \div 2.0\ \operatorname{or} \ 0.5 \times x$ |<br>| $\sqrt{x}$ |  $\operatorname{sqrt}(x \times 1.0)$ |</p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> x , y;</span><br><span class="line">	cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; fixed &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">6</span>) &lt;&lt; ((<span class="number">1</span>/<span class="number">2.0</span>)*x) + ((<span class="number">1</span>/<span class="number">2.0</span>) * y) &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; fixed &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">6</span>) &lt;&lt; ((<span class="built_in">sqrt</span>(<span class="number">3.0</span>) / <span class="number">2.0</span>) * x) - ((<span class="built_in">sqrt</span>(<span class="number">3.0</span>) / <span class="number">2.0</span>) * y);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>洛谷题解</category>
       </categories>
@@ -1183,12 +1183,12 @@ ANS=\frac{W\times H}{\operatorname{LCF^2}}</script><h3 id="Code"><a href="#Code"
       </tags>
   </entry>
   <entry>
-    <title>P10520 [XJTUPC2024] 榕树之心</title>
-    <url>/article/sol-P10520/</url>
-    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/p10520">P10520 [XJTUPC2024] 榕树之心</a>。</p>
-<p>求：</p>
-<script type="math/tex; mode=display">x^{\prime} = \frac{1}{2} x + \frac{1}{2} y</script><script type="math/tex; mode=display">y^{\prime} = \frac{\sqrt{3}}{2} x - \frac{\sqrt{3}}{2} y</script><h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>直接模拟即可（运算记得带小数）。<br>| 式子 | 作用 |<br>| :—————: | :—————: |<br>| $\frac{1}{2}x$ | $x \div 2.0\ \operatorname{or} \ 0.5 \times x$ |<br>| $\sqrt{x}$ |  $\operatorname{sqrt}(x \times 1.0)$ |</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> x , y;</span><br><span class="line">	cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; fixed &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">6</span>) &lt;&lt; ((<span class="number">1</span>/<span class="number">2.0</span>)*x) + ((<span class="number">1</span>/<span class="number">2.0</span>) * y) &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; fixed &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">6</span>) &lt;&lt; ((<span class="built_in">sqrt</span>(<span class="number">3.0</span>) / <span class="number">2.0</span>) * x) - ((<span class="built_in">sqrt</span>(<span class="number">3.0</span>) / <span class="number">2.0</span>) * y);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <title>P10522 [XJTUPC2024] 雪中楼</title>
+    <url>/article/sol-P10522/</url>
+    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/p10522">P10522 [XJTUPC2024] 雪中楼</a>。</p>
+<p>由于 $n \le 2 \times 10^5$，插入次数太多，考虑维护链表。</p>
+<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>对于每次操作，输入 $a_i$，若 $i=0$ 就将 $a_i$ 插到链表尾部，否则插到 $a_i$ 左边，最后翻转完输出，就这么简单。</p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXN 2e5 + 10</span></span><br><span class="line"></span><br><span class="line">list &lt;<span class="type">int</span>&gt; l;</span><br><span class="line">list &lt;<span class="type">int</span>&gt; :: iterator number[<span class="built_in">int</span>(MAXN)] = </span><br><span class="line">&#123;</span><br><span class="line">	l.<span class="built_in">begin</span>() , l.<span class="built_in">end</span>()</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">main</span>()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt;= n ; i ++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> x;</span><br><span class="line">		cin &gt;&gt; x;</span><br><span class="line">		</span><br><span class="line">		number[i] = l.<span class="built_in">insert</span>(number[x] , i); <span class="comment">//插入函数</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">reverse</span>(l.<span class="built_in">begin</span>() , l.<span class="built_in">end</span>()); <span class="comment">//翻转</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(list &lt;<span class="type">int</span>&gt; :: iterator it = l.<span class="built_in">begin</span>() ; it != l.<span class="built_in">end</span>() ; it ++) <span class="comment">// 迭代器</span></span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>洛谷题解</category>
       </categories>
