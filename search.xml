@@ -10,89 +10,6 @@
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">double</span> a,b,c=<span class="built_in">sqrt</span>(<span class="number">5</span>);</span><br><span class="line">	cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.0lf&quot;</span>,((b-a*(<span class="number">1.0</span>-c)/<span class="number">2.0</span>)*(<span class="number">3.0</span>+c)/<span class="number">2.0</span>+((a*(<span class="number">1.0</span>+c)/<span class="number">2.0</span>-b)*(<span class="number">3.0</span>-c)/<span class="number">2</span>))/c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
-    <title>✨五分钟从零搭建自己的图床</title>
-    <url>/article/PicX/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在洛谷，拥有洛谷图床。但是，洛谷图床有些时候对用户名颜色、文件大小等有要求。于是，小编今天教你<strong>不用代码</strong>，五分钟搭建一个属于自己的个人图床。</p>
-<h3 id="PicX"><a href="#PicX" class="headerlink" title="PicX"></a>PicX</h3><p>?️ PicX 是一款基于 GitHub API 开发的图床工具，提供图片上传托管、生成图片链接和常用图片工具箱服务。</p>
-<p>? 建议将本站添加到浏览器收藏夹，方便下次使用。 快捷键：Ctrl + D</p>
-<p>? 作者：@<a href="https://xpoet.cn/">XPoet</a></p>
-<p>? 仓库：<a href="https://github.com/XPoet/picx">https://github.com/XPoet/picx</a></p>
-<p>? 文档：<a href="https://picx-docs.xpoet.cn">https://picx-docs.xpoet.cn</a></p>
-<h3 id="前置要求"><a href="#前置要求" class="headerlink" title="前置要求"></a>前置要求</h3><ul>
-<li>拥有一个 Github 账号，没有可以<a href="https://docs.github.com/zh/get-started/start-your-journey/creating-an-account-on-github">注册</a>。</li>
-</ul>
-<h3 id="新建存储库"><a href="#新建存储库" class="headerlink" title="新建存储库"></a>新建存储库</h3><ol>
-<li>打开<a href="https://github.com/zhao2022-Ux?tab=repositories">个人存储库</a>，点击 $\tt{\color{green} New}$，转到新建页面。</li>
-<li>创建一个新项目，如下图所示：<br><img src="https://cdn.zhaohonghao-qwq.com/img/img无标1题.1hs3bvxs1u.png" alt=""></li>
-</ol>
-<h3 id="初始化-PicX"><a href="#初始化-PicX" class="headerlink" title="初始化 PicX"></a>初始化 PicX</h3><ul>
-<li><p>使用 OAuth。</p>
-<blockquote>
-<ol>
-<li>打开官网<a href="https://picx.xpoet.cn/#/">https://picx.xpoet.cn/#/</a>，单击<strong>使用 GitHub OAuth 授权登录</strong>。</li>
-<li>按照 Github 给出的指示一步一步下去。</li>
-<li>进入<a href="https://picx.xpoet.cn/#/config">图床配置</a> 填写用户名，项目名称，目录等，就好了。</li>
-</ol>
-</blockquote>
-</li>
-<li><p>使用 Token。</p>
-<blockquote>
-<ol>
-<li>打开官网<a href="https://picx.xpoet.cn/#/">https://picx.xpoet.cn/#/</a>，单击<strong>填写 GitHub Token 登录</strong>。</li>
-<li>打开 Github 新建 Token，见<a href="https://www.bilibili.com/video/BV1QzhUebEHi/?zw&amp;spm_id_from=888.80996.embed_old&amp;vd_source=6a0b71a226325dba546e5d6dd9e9c7d0">视频</a>。</li>
-</ol>
-<ul>
-<li>⚠️<strong>Token 只会在创建后出现一次，刷新就没了，请自己截图保存。</strong></li>
-</ul>
-<ol>
-<li>将 Token 输入即可绑定。</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-<h3 id="上传图片"><a href="#上传图片" class="headerlink" title="上传图片"></a>上传图片</h3><ul>
-<li>按照平时使用洛谷图床的步骤使用即可。</li>
-<li>点击 <strong>复制链接</strong> 即可获取图片链接。</li>
-</ul>
-<h2 id="自定义域名（可选）"><a href="#自定义域名（可选）" class="headerlink" title="自定义域名（可选）"></a>自定义域名（可选）</h2><p>有些人不喜欢 GithubUserName.github.io 这个域名，那么就自己买一个域名用来绑定图床，比如 cdn.luogu.com.cn。</p>
-<h3 id="将网站部署至-Vercel"><a href="#将网站部署至-Vercel" class="headerlink" title="将网站部署至 Vercel"></a>将网站部署至 Vercel</h3><ol>
-<li>打开 <a href="vercel.com">Vercel</a>，登录账号，没有可以注册。</li>
-<li>点击 $\tt{Add New}$ $\dots$，选择 Project。</li>
-<li>找到 Import Git Repository，将图床的 Github 项目名找到，点击 Import，找不到可以搜索。</li>
-<li>按照指南一步一步下去，最后完成会出现烟花界面。</li>
-</ol>
-<h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><ol>
-<li>打开自己的域名运营商，找到域名解析控制台。</li>
-<li>添加 <code>CHEAM</code> 类型的域名解析，值为 <code>cname.vercel-dns.com</code>（在项目已经部署至 Vercel 的情况下）。</li>
-<li>打开 Vercel，找到项目，点击 Settings，找到 domain，在里面输入域名。<br><img src="https://cdn.zhaohonghao-qwq.com/img/无标题.7ax1mek27a.webp" alt=""></li>
-</ol>
-<p>最后稍等一会，域名绑定成功。</p>
-<h3 id="更改路径"><a href="#更改路径" class="headerlink" title="更改路径"></a>更改路径</h3><ol>
-<li>打开 <a href="https://picx.xpoet.cn/#/">https://picx.xpoet.cn/#/</a>，右侧找到设置，下拉找到图片链接规则配置。</li>
-<li>将 GitHub Pages 的链接规则改为 <code>https://自定义域名/&#123;&#123;path&#125;&#125;</code>，出现警告，不用管它。</li>
-<li>将数据同步到云端仓库。<br><img src="https://cdn.zhaohonghao-qwq.com/img/屏幕截图-2024-07-07-173856.2vemh5ijie.webp" alt=""></li>
-<li>完成配置，可以自己测试，剩下功能自己探索。</li>
-</ol>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li><strong>请勿使用 PicX 上传违反你当地法律的图片，所造成的一切后果与作者无关。</strong></li>
-<li>每次更改设置后或上传图片后，要更新至云端。</li>
-<li><strong>Github Token 只会在创建后出现一次，刷新就没了，请自己截图保存。</strong></li>
-<li>有时更新失败，可能是 Github 被墙了，请稍后在尝试。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>科技·工程</category>
-      </categories>
-      <tags>
-        <tag>PicX</tag>
-        <tag>洛谷</tag>
-        <tag>Github</tag>
-        <tag>图床</tag>
-        <tag>教程</tag>
-        <tag>视频教程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>✨简简单单写程序</title>
     <url>/article/Hello-Word/</url>
     <content><![CDATA[<blockquote>
@@ -983,6 +900,89 @@
       </categories>
       <tags>
         <tag>洛谷,教程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>✨五分钟从零搭建自己的图床</title>
+    <url>/article/PicX/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在洛谷，拥有洛谷图床。但是，洛谷图床有些时候对用户名颜色、文件大小等有要求。于是，小编今天教你<strong>不用代码</strong>，五分钟搭建一个属于自己的个人图床。</p>
+<h3 id="PicX"><a href="#PicX" class="headerlink" title="PicX"></a>PicX</h3><p>?️ PicX 是一款基于 GitHub API 开发的图床工具，提供图片上传托管、生成图片链接和常用图片工具箱服务。</p>
+<p>? 建议将本站添加到浏览器收藏夹，方便下次使用。 快捷键：Ctrl + D</p>
+<p>? 作者：@<a href="https://xpoet.cn/">XPoet</a></p>
+<p>? 仓库：<a href="https://github.com/XPoet/picx">https://github.com/XPoet/picx</a></p>
+<p>? 文档：<a href="https://picx-docs.xpoet.cn">https://picx-docs.xpoet.cn</a></p>
+<h3 id="前置要求"><a href="#前置要求" class="headerlink" title="前置要求"></a>前置要求</h3><ul>
+<li>拥有一个 Github 账号，没有可以<a href="https://docs.github.com/zh/get-started/start-your-journey/creating-an-account-on-github">注册</a>。</li>
+</ul>
+<h3 id="新建存储库"><a href="#新建存储库" class="headerlink" title="新建存储库"></a>新建存储库</h3><ol>
+<li>打开<a href="https://github.com/zhao2022-Ux?tab=repositories">个人存储库</a>，点击 $\tt{\color{green} New}$，转到新建页面。</li>
+<li>创建一个新项目，如下图所示：<br><img src="https://cdn.zhaohonghao-qwq.com/img/img无标1题.1hs3bvxs1u.png" alt=""></li>
+</ol>
+<h3 id="初始化-PicX"><a href="#初始化-PicX" class="headerlink" title="初始化 PicX"></a>初始化 PicX</h3><ul>
+<li><p>使用 OAuth。</p>
+<blockquote>
+<ol>
+<li>打开官网<a href="https://picx.xpoet.cn/#/">https://picx.xpoet.cn/#/</a>，单击<strong>使用 GitHub OAuth 授权登录</strong>。</li>
+<li>按照 Github 给出的指示一步一步下去。</li>
+<li>进入<a href="https://picx.xpoet.cn/#/config">图床配置</a> 填写用户名，项目名称，目录等，就好了。</li>
+</ol>
+</blockquote>
+</li>
+<li><p>使用 Token。</p>
+<blockquote>
+<ol>
+<li>打开官网<a href="https://picx.xpoet.cn/#/">https://picx.xpoet.cn/#/</a>，单击<strong>填写 GitHub Token 登录</strong>。</li>
+<li>打开 Github 新建 Token，见<a href="https://www.bilibili.com/video/BV1QzhUebEHi/?zw&amp;spm_id_from=888.80996.embed_old&amp;vd_source=6a0b71a226325dba546e5d6dd9e9c7d0">视频</a>。</li>
+</ol>
+<ul>
+<li>⚠️<strong>Token 只会在创建后出现一次，刷新就没了，请自己截图保存。</strong></li>
+</ul>
+<ol>
+<li>将 Token 输入即可绑定。</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h3 id="上传图片"><a href="#上传图片" class="headerlink" title="上传图片"></a>上传图片</h3><ul>
+<li>按照平时使用洛谷图床的步骤使用即可。</li>
+<li>点击 <strong>复制链接</strong> 即可获取图片链接。</li>
+</ul>
+<h2 id="自定义域名（可选）"><a href="#自定义域名（可选）" class="headerlink" title="自定义域名（可选）"></a>自定义域名（可选）</h2><p>有些人不喜欢 GithubUserName.github.io 这个域名，那么就自己买一个域名用来绑定图床，比如 cdn.luogu.com.cn。</p>
+<h3 id="将网站部署至-Vercel"><a href="#将网站部署至-Vercel" class="headerlink" title="将网站部署至 Vercel"></a>将网站部署至 Vercel</h3><ol>
+<li>打开 <a href="vercel.com">Vercel</a>，登录账号，没有可以注册。</li>
+<li>点击 $\tt{Add New}$ $\dots$，选择 Project。</li>
+<li>找到 Import Git Repository，将图床的 Github 项目名找到，点击 Import，找不到可以搜索。</li>
+<li>按照指南一步一步下去，最后完成会出现烟花界面。</li>
+</ol>
+<h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><ol>
+<li>打开自己的域名运营商，找到域名解析控制台。</li>
+<li>添加 <code>CHEAM</code> 类型的域名解析，值为 <code>cname.vercel-dns.com</code>（在项目已经部署至 Vercel 的情况下）。</li>
+<li>打开 Vercel，找到项目，点击 Settings，找到 domain，在里面输入域名。<br><img src="https://cdn.zhaohonghao-qwq.com/img/无标题.7ax1mek27a.webp" alt=""></li>
+</ol>
+<p>最后稍等一会，域名绑定成功。</p>
+<h3 id="更改路径"><a href="#更改路径" class="headerlink" title="更改路径"></a>更改路径</h3><ol>
+<li>打开 <a href="https://picx.xpoet.cn/#/">https://picx.xpoet.cn/#/</a>，右侧找到设置，下拉找到图片链接规则配置。</li>
+<li>将 GitHub Pages 的链接规则改为 <code>https://自定义域名/&#123;&#123;path&#125;&#125;</code>，出现警告，不用管它。</li>
+<li>将数据同步到云端仓库。<br><img src="https://cdn.zhaohonghao-qwq.com/img/屏幕截图-2024-07-07-173856.2vemh5ijie.webp" alt=""></li>
+<li>完成配置，可以自己测试，剩下功能自己探索。</li>
+</ol>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li><strong>请勿使用 PicX 上传违反你当地法律的图片，所造成的一切后果与作者无关。</strong></li>
+<li>每次更改设置后或上传图片后，要更新至云端。</li>
+<li><strong>Github Token 只会在创建后出现一次，刷新就没了，请自己截图保存。</strong></li>
+<li>有时更新失败，可能是 Github 被墙了，请稍后在尝试。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>科技·工程</category>
+      </categories>
+      <tags>
+        <tag>PicX</tag>
+        <tag>洛谷</tag>
+        <tag>Github</tag>
+        <tag>图床</tag>
+        <tag>教程</tag>
+        <tag>视频教程</tag>
       </tags>
   </entry>
   <entry>
