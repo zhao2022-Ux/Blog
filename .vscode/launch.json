@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Hexo clean & build & hexo server",
+        "cwd": "${workspaceFolder}",
+        "runtimeExecutable": "npm",
+        "runtimeArgs": [
+          "sanjiantao"
+        ],
+        "console": "internalConsole",
+        "outputCapture": "std"
+      }
+    ]
+}
