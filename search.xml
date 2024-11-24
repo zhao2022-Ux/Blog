@@ -1239,36 +1239,6 @@ ANS=\frac{W\times H}{\operatorname{LCF^2}}</script><h3 id="Code"><a href="#Code"
       </tags>
   </entry>
   <entry>
-    <title>P7012 [CERC2013] Draughts</title>
-    <url>/article/sol-P7012/</url>
-    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P7012">P7012 [CERC2013] Draughts</a>。</p>
-<p>简单回溯题目，你操作白棋，判断白棋最多能吃几个敌方的棋。</p>
-<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>考虑 $n\le10$，直接爆搜（回溯）。</p>
-<p>分类讨论：</p>
-<ul>
-<li><p>字符 $\tt #$ 和 $\tt .$ 表示空的黑色和白色方块，$\tt W$ 表示有浅色棋子的方块，$\tt B$ 表示有深色棋子的方块。</p>
-</li>
-<li><p>增量数组：</p>
-  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-2</span>,<span class="number">-2</span>,<span class="number">2</span>,<span class="number">2</span>&#125;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">-2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">-2</span>&#125;;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>多组测试数据记得复原</strong>。</p>
-</li>
-<li><p>记得<strong>回溯</strong>。</p>
-</li>
-<li><p>找到每一个浅色棋子，去看它旁边有没有深色棋子。</p>
-</li>
-<li><p>记得找最大值，没有白棋输出 $-1$。</p>
-</li>
-</ul>
-<p>时间复杂度 $\mathcal{O}(n^2)$。</p>
-]]></content>
-      <categories>
-        <category>洛谷题解</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>P10692 [SNCPC2024] 表达式矩阵</title>
     <url>/article/sol-P10692/</url>
     <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P10692">P10692 [SNCPC2024] 表达式矩阵</a>。</p>
@@ -1291,6 +1261,36 @@ ANS=\frac{W\times H}{\operatorname{LCF^2}}</script><h3 id="Code"><a href="#Code"
 <p>如图所示，观察位于交点的六个运算符，需要保证每行都有一个 $+$，每列都有一个 $+$。可以考虑斜着分配。</p>
 <p>通过搜索和合理的剪枝，能在可接受的时间内算出答案。</p>
 <p>考虑答案空间只有 $9 × 9$，可以搜出所有的答案硬编写在代码中。</p>
+]]></content>
+      <categories>
+        <category>洛谷题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P7012 [CERC2013] Draughts</title>
+    <url>/article/sol-P7012/</url>
+    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P7012">P7012 [CERC2013] Draughts</a>。</p>
+<p>简单回溯题目，你操作白棋，判断白棋最多能吃几个敌方的棋。</p>
+<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>考虑 $n\le10$，直接爆搜（回溯）。</p>
+<p>分类讨论：</p>
+<ul>
+<li><p>字符 $\tt #$ 和 $\tt .$ 表示空的黑色和白色方块，$\tt W$ 表示有浅色棋子的方块，$\tt B$ 表示有深色棋子的方块。</p>
+</li>
+<li><p>增量数组：</p>
+  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-2</span>,<span class="number">-2</span>,<span class="number">2</span>,<span class="number">2</span>&#125;;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">-2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">-2</span>&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>多组测试数据记得复原</strong>。</p>
+</li>
+<li><p>记得<strong>回溯</strong>。</p>
+</li>
+<li><p>找到每一个浅色棋子，去看它旁边有没有深色棋子。</p>
+</li>
+<li><p>记得找最大值，没有白棋输出 $-1$。</p>
+</li>
+</ul>
+<p>时间复杂度 $\mathcal{O}(n^2)$。</p>
 ]]></content>
       <categories>
         <category>洛谷题解</category>
