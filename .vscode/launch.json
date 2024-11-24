@@ -8,7 +8,7 @@
         "cwd": "${workspaceFolder}",
         "runtimeExecutable": "npm",
         "runtimeArgs": [
-          "sanjiantao"
+          "cbs"
         ],
         "console": "internalConsole",
         "outputCapture": "std"
