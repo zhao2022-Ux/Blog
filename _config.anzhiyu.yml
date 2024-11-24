@@ -791,7 +791,7 @@ font:
   global-font-size: 16px
   code-font-size:
   font-family: 'Microsoft JhengHei'
-  code-font-family: "JetBrains Mono", Menlo, "PingFang SC", "Microsoft JhengHei", sans-serif
+  code-font-family: JetBrains Mono, Menlo, "PingFang SC", "Microsoft JhengHei", sans-serif
 
 # Font settings for the site title and site subtitle
 # 左上角网站名字 主页居中网站名字
