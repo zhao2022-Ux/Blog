@@ -1169,6 +1169,20 @@ ANS=\frac{W\times H}{\operatorname{LCF^2}}</script><h3 id="Code"><a href="#Code"
       </tags>
   </entry>
   <entry>
+    <title>P10520 [XJTUPC2024] 榕树之心</title>
+    <url>/article/sol-P10520/</url>
+    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/p10520">P10520 [XJTUPC2024] 榕树之心</a>。</p>
+<p>求：</p>
+<script type="math/tex; mode=display">x^{\prime} = \frac{1}{2} x + \frac{1}{2} y</script><script type="math/tex; mode=display">y^{\prime} = \frac{\sqrt{3}}{2} x - \frac{\sqrt{3}}{2} y</script><h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>直接模拟即可（运算记得带小数）。<br>| 式子 | 作用 |<br>| :—————: | :—————: |<br>| $\frac{1}{2}x$ | $x \div 2.0\ \operatorname{or} \ 0.5 \times x$ |<br>| $\sqrt{x}$ |  $\operatorname{sqrt}(x \times 1.0)$ |</p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> x , y;</span><br><span class="line">	cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; fixed &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">6</span>) &lt;&lt; ((<span class="number">1</span>/<span class="number">2.0</span>)*x) + ((<span class="number">1</span>/<span class="number">2.0</span>) * y) &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; fixed &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">6</span>) &lt;&lt; ((<span class="built_in">sqrt</span>(<span class="number">3.0</span>) / <span class="number">2.0</span>) * x) - ((<span class="built_in">sqrt</span>(<span class="number">3.0</span>) / <span class="number">2.0</span>) * y);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>洛谷题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>P10522 [XJTUPC2024] 雪中楼</title>
     <url>/article/sol-P10522/</url>
     <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/p10522">P10522 [XJTUPC2024] 雪中楼</a>。</p>
@@ -1197,20 +1211,6 @@ ANS=\frac{W\times H}{\operatorname{LCF^2}}</script><h3 id="Code"><a href="#Code"
 <script type="math/tex; mode=display">\sum_{i=1}^{n}\sum_{j=1}^{n}[i\perp j][\frac{n}{\max{(i,j)}}]</script><p>可以理解为对所有互质的 $(i,j)$ 求上述射线所覆盖的点对数量，在上述结论中可知该和为 ${n}^{2}$。</p>
 <p>还有几种解法不说了，可以自行去看<a href="https://www.bilibili.com/video/BV1t1421B7qq/">讲评回放</a>。</p>
 <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">x = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="built_in">print</span>(x * x)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>洛谷题解</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>P10520 [XJTUPC2024] 榕树之心</title>
-    <url>/article/sol-P10520/</url>
-    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/p10520">P10520 [XJTUPC2024] 榕树之心</a>。</p>
-<p>求：</p>
-<script type="math/tex; mode=display">x^{\prime} = \frac{1}{2} x + \frac{1}{2} y</script><script type="math/tex; mode=display">y^{\prime} = \frac{\sqrt{3}}{2} x - \frac{\sqrt{3}}{2} y</script><h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>直接模拟即可（运算记得带小数）。<br>| 式子 | 作用 |<br>| :—————: | :—————: |<br>| $\frac{1}{2}x$ | $x \div 2.0\ \operatorname{or} \ 0.5 \times x$ |<br>| $\sqrt{x}$ |  $\operatorname{sqrt}(x \times 1.0)$ |</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> x , y;</span><br><span class="line">	cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; fixed &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">6</span>) &lt;&lt; ((<span class="number">1</span>/<span class="number">2.0</span>)*x) + ((<span class="number">1</span>/<span class="number">2.0</span>) * y) &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; fixed &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">6</span>) &lt;&lt; ((<span class="built_in">sqrt</span>(<span class="number">3.0</span>) / <span class="number">2.0</span>) * x) - ((<span class="built_in">sqrt</span>(<span class="number">3.0</span>) / <span class="number">2.0</span>) * y);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>洛谷题解</category>
       </categories>
