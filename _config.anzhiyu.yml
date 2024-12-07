@@ -414,8 +414,8 @@ twikoo:
 # Artalk
 # https://artalk.js.org/guide/frontend/config.html
 artalk:
-  server: https://c93qptsh-5212.asse.devtunnels.ms/
-  site: hksn
+  server: http://heikeshaonian.serv00.net:1124/
+  site: heishao
   visitor: true
   option:
 
