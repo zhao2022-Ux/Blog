@@ -47,7 +47,7 @@ script.
 
     const getSetting = async () => {
       try {
-        const res = await fetch('!{server}/api/conf', { method: 'GET' })
+        const res = await fetch('!{server}/api/v2/conf', { method: 'GET' })
         return await res.json()
       } catch (e) {
         console.log(e)
@@ -69,7 +69,7 @@ script.
 
     const getComment = async () => {
       try {
-        const res = await fetch('!{server}/api/stat', headerList)
+        const res = await fetch('!{server}/api/v2/stats', headerList)
         const result = await res.json()
         const avatarStr = await getSetting()
         const { mirror, params, default:defaults } = avatarStr.data.frontend_conf.gravatar
