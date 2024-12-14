@@ -1219,26 +1219,6 @@ ANS=\frac{W\times H}{\operatorname{LCF^2}}</script><h3 id="Code"><a href="#Code"
       </tags>
   </entry>
   <entry>
-    <title>P10676 『STA - R6』b20</title>
-    <url>/article/sol-P10676/</url>
-    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P10676">P10676 『STA - R6』b20</a>。</p>
-<p>简单模拟题。</p>
-<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>给定一个字符串（网站名称）和一个整数（粉丝数），输出网站名称的<strong>第一位</strong>，和这个整数。</p>
-<p>方便起见都做成 $\operatorname{string}$，输出 $s_0\ ^{[1]}$ 和 $s1\ ^{[2]}$ 即可。</p>
-<ul>
-<li>$^{[1]}$ 指网站名称的第一位，下表从 $0$ 开始。</li>
-<li>$^{[2]}$ 指粉丝数，方便做成字符串。</li>
-</ul>
-<p>注意输出<strong>不用带空格</strong>。</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	string s; <span class="comment">//网站名称</span></span><br><span class="line">	string s1;<span class="comment">//粉丝数量</span></span><br><span class="line">	</span><br><span class="line">	cin &gt;&gt; s &gt;&gt; s1;</span><br><span class="line">	cout &lt;&lt; s[<span class="number">0</span>] &lt;&lt; s1;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>洛谷题解</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>P10692 [SNCPC2024] 表达式矩阵</title>
     <url>/article/sol-P10692/</url>
     <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P10692">P10692 [SNCPC2024] 表达式矩阵</a>。</p>
@@ -1262,6 +1242,26 @@ ANS=\frac{W\times H}{\operatorname{LCF^2}}</script><h3 id="Code"><a href="#Code"
 <p>通过搜索和合理的剪枝，能在可接受的时间内算出答案。</p>
 <p>考虑答案空间只有 $9 × 9$，可以搜出所有的答案硬编写在代码中。</p>
 ]]></content>
+      <categories>
+        <category>洛谷题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P10676 『STA - R6』b20</title>
+    <url>/article/sol-P10676/</url>
+    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P10676">P10676 『STA - R6』b20</a>。</p>
+<p>简单模拟题。</p>
+<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>给定一个字符串（网站名称）和一个整数（粉丝数），输出网站名称的<strong>第一位</strong>，和这个整数。</p>
+<p>方便起见都做成 $\operatorname{string}$，输出 $s_0\ ^{[1]}$ 和 $s1\ ^{[2]}$ 即可。</p>
+<ul>
+<li>$^{[1]}$ 指网站名称的第一位，下表从 $0$ 开始。</li>
+<li>$^{[2]}$ 指粉丝数，方便做成字符串。</li>
+</ul>
+<p>注意输出<strong>不用带空格</strong>。</p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	string s; <span class="comment">//网站名称</span></span><br><span class="line">	string s1;<span class="comment">//粉丝数量</span></span><br><span class="line">	</span><br><span class="line">	cin &gt;&gt; s &gt;&gt; s1;</span><br><span class="line">	cout &lt;&lt; s[<span class="number">0</span>] &lt;&lt; s1;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>洛谷题解</category>
       </categories>
