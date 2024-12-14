@@ -1365,8 +1365,8 @@ CDN:
     # prismjs_js:
     # prismjs_lineNumber_js:
     # prismjs_autoloader:
-    # artalk_js:
-    # artalk_css:
+    artalk_js: https://artalk-windows.heishao.me/dist/Artalk.js
+    artalk_css: https://artalk-windows.heishao.me/dist/Artalk.css
     # pace_js:
     # pace_default_css:
     # countup_js:
