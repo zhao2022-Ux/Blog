@@ -414,7 +414,7 @@ twikoo:
 # Artalk
 # https://artalk.js.org/guide/frontend/config.html
 artalk:
-  server: https://artalk-windows.heishao.me/
+  server: https://artalk-windows.heishao.me
   site: blog
   visitor: true
   option:
