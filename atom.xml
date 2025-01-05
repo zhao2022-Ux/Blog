@@ -384,33 +384,6 @@
   </entry>
   
   <entry>
-    <title>P10314 [SHUPC 2024] 函数</title>
-    <link href="https://blog.heishao.me/article/sol-P10314/"/>
-    <id>https://blog.heishao.me/article/sol-P10314/</id>
-    <published>2024-04-11T11:57:01.000Z</published>
-    <updated>2024-07-22T10:56:30.618Z</updated>
-    
-    <content type="html"><![CDATA[<p>题目传送门：<a href="\problem\P10314">P10314 [SHUPC 2024] 函数</a></p><p>解函数题。</p><hr><h3 id="函数解读"><a href="#函数解读" class="headerlink" title="函数解读"></a>函数解读</h3><script type="math/tex; mode=display">f(x)=x-0.5+\frac{\arctan(\cot(\pi x))}{\pi}</script><div class="table-container"><table><thead><tr><th style="text-align:center">函数</th><th style="text-align:center">名称</th><th style="text-align:center">$\operatorname{c++}$</th></tr></thead><tbody><tr><td style="text-align:center">$\arctan$</td><td style="text-align:center">反正切函数</td><td style="text-align:center">$\operatorname{atan}(\operatorname{double} x)$</td></tr><tr><td style="text-align:center">$\cot$</td><td style="text-align:center">余切函数</td><td style="text-align:center">$1.0/\tan(\operatorname{double} x)$</td></tr><tr><td style="text-align:center">$\pi$</td><td style="text-align:center">圆周率</td><td style="text-align:center"><code>std::numbers::pi</code></td></tr></tbody></table></div><p>所以，我们可以得出代码：</p><h2 id=""><a href="#" class="headerlink" title=""></a><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;<span class="keyword">return</span> x - <span class="number">0.5</span> + <span class="built_in">atan</span>(<span class="number">1.0</span> / <span class="built_in">tan</span>(std::numbers::pi * x)) / std::numbers::pi;&#125;</span><br></pre></td></tr></table></figure></h2><h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;<span class="keyword">return</span> x - <span class="number">0.5</span> + <span class="built_in">atan</span>(<span class="number">1.0</span> / <span class="built_in">tan</span>(std::numbers::pi * x)) / std::numbers::pi;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="type">int</span> T;</span><br><span class="line">cin &gt;&gt; T;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(T --)</span><br><span class="line">&#123;</span><br><span class="line"><span class="type">double</span> x;</span><br><span class="line">cin &gt;&gt; x;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%7f\n&quot;</span>, <span class="built_in">f</span>(x));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><ul><li>Q：为什么过不了编译？</li><li>A：因为有 <code>std::numbers::pi</code>，所以要用 <code>c++20</code> 提交。</li></ul><hr><ul><li>Q：为什么 $\cot(x) = \frac{1}{\tan x}$？</li><li>A：按照<strong>三角函数</strong>，$\cot x = \frac{b}{a}$ , $\tan x = \frac{a}{b}$，即 $\cot$ 和 $\tan$ 互为倒数，所以$\cot(x) = \frac{1}{\tan x}$。<h5 id="有问题欢迎评论区留言"><a href="#有问题欢迎评论区留言" class="headerlink" title="有问题欢迎评论区留言~"></a>有问题欢迎评论区留言~</h5></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;题目传送门：&lt;a href=&quot;&#92;problem&#92;P10314&quot;&gt;P10314 [SHUPC 2024] 函数&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;解函数题。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h3 id=&quot;函数解读&quot;&gt;&lt;a href=&quot;#函数解读&quot; class=&quot;headerlink&quot; title=&quot;</summary>
-      
-    
-    
-    
-    <category term="洛谷题解" scheme="https://blog.heishao.me/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="题解" scheme="https://blog.heishao.me/tags/%E9%A2%98%E8%A7%A3/"/>
-    
-  </entry>
-  
-  <entry>
     <title>✨简简单单写程序</title>
     <link href="https://blog.heishao.me/article/Hello-Word/"/>
     <id>https://blog.heishao.me/article/Hello-Word/</id>
@@ -434,6 +407,33 @@
     
     
     <category term="洛谷,教程" scheme="https://blog.heishao.me/tags/%E6%B4%9B%E8%B0%B7-%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>P10314 [SHUPC 2024] 函数</title>
+    <link href="https://blog.heishao.me/article/sol-P10314/"/>
+    <id>https://blog.heishao.me/article/sol-P10314/</id>
+    <published>2024-04-11T11:57:01.000Z</published>
+    <updated>2024-07-22T10:56:30.618Z</updated>
+    
+    <content type="html"><![CDATA[<p>题目传送门：<a href="\problem\P10314">P10314 [SHUPC 2024] 函数</a></p><p>解函数题。</p><hr><h3 id="函数解读"><a href="#函数解读" class="headerlink" title="函数解读"></a>函数解读</h3><script type="math/tex; mode=display">f(x)=x-0.5+\frac{\arctan(\cot(\pi x))}{\pi}</script><div class="table-container"><table><thead><tr><th style="text-align:center">函数</th><th style="text-align:center">名称</th><th style="text-align:center">$\operatorname{c++}$</th></tr></thead><tbody><tr><td style="text-align:center">$\arctan$</td><td style="text-align:center">反正切函数</td><td style="text-align:center">$\operatorname{atan}(\operatorname{double} x)$</td></tr><tr><td style="text-align:center">$\cot$</td><td style="text-align:center">余切函数</td><td style="text-align:center">$1.0/\tan(\operatorname{double} x)$</td></tr><tr><td style="text-align:center">$\pi$</td><td style="text-align:center">圆周率</td><td style="text-align:center"><code>std::numbers::pi</code></td></tr></tbody></table></div><p>所以，我们可以得出代码：</p><h2 id=""><a href="#" class="headerlink" title=""></a><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;<span class="keyword">return</span> x - <span class="number">0.5</span> + <span class="built_in">atan</span>(<span class="number">1.0</span> / <span class="built_in">tan</span>(std::numbers::pi * x)) / std::numbers::pi;&#125;</span><br></pre></td></tr></table></figure></h2><h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;<span class="keyword">return</span> x - <span class="number">0.5</span> + <span class="built_in">atan</span>(<span class="number">1.0</span> / <span class="built_in">tan</span>(std::numbers::pi * x)) / std::numbers::pi;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="type">int</span> T;</span><br><span class="line">cin &gt;&gt; T;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(T --)</span><br><span class="line">&#123;</span><br><span class="line"><span class="type">double</span> x;</span><br><span class="line">cin &gt;&gt; x;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%7f\n&quot;</span>, <span class="built_in">f</span>(x));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><ul><li>Q：为什么过不了编译？</li><li>A：因为有 <code>std::numbers::pi</code>，所以要用 <code>c++20</code> 提交。</li></ul><hr><ul><li>Q：为什么 $\cot(x) = \frac{1}{\tan x}$？</li><li>A：按照<strong>三角函数</strong>，$\cot x = \frac{b}{a}$ , $\tan x = \frac{a}{b}$，即 $\cot$ 和 $\tan$ 互为倒数，所以$\cot(x) = \frac{1}{\tan x}$。<h5 id="有问题欢迎评论区留言"><a href="#有问题欢迎评论区留言" class="headerlink" title="有问题欢迎评论区留言~"></a>有问题欢迎评论区留言~</h5></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;题目传送门：&lt;a href=&quot;&#92;problem&#92;P10314&quot;&gt;P10314 [SHUPC 2024] 函数&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;解函数题。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;函数解读&quot;&gt;&lt;a href=&quot;#函数解读&quot; class=&quot;headerlink&quot; title=&quot;</summary>
+      
+    
+    
+    
+    <category term="洛谷题解" scheme="https://blog.heishao.me/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="题解" scheme="https://blog.heishao.me/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
