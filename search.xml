@@ -93,62 +93,6 @@
       </tags>
   </entry>
   <entry>
-    <title>P10313 [SHUPC 2024] 占地斗士！</title>
-    <url>/article/sol-P10313/</url>
-    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P10313">P10313 [SHUPC 2024]  占地斗士！</a>。</p>
-<p>简单搜索题。</p>
-<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>容易发现，$1\le n,m\le10$，地图很小，所以考虑 DFS 算法。</p>
-<p>其实是回溯，不是深度优先搜索。</p>
-<p>题目不难，但细节多。</p>
-<ul>
-<li>用变量存下已经放置的卡牌数量。</li>
-<li><strong>用 $\mathcal{vis}$ 记录此卡牌是否放置过（不能直接改地图，这是回溯的重要部分）</strong>。</li>
-<li>其它就是回溯+剪枝即可。</li>
-</ul>
-<p>一些细节：</p>
-<ul>
-<li>暴力枚举每个形状可以放的所有位置。</li>
-<li>是 <code>#</code> 不能放，换个位置。</li>
-<li>可以放的话，卡牌数自增，答案加上<strong>占地格子数</strong>，<strong>不是 $1$</strong>。</li>
-<li>可以放，记得 $vis$ 标记位置。</li>
-</ul>
-<p>若所有的卡牌都可以放入，那么直接输出 $18$，不用搜了，<strong>搜了小心 $\tt TLE$，程序卡死</strong>。</p>
-<p>都可以放入的数据如下：</p>
-<blockquote>
-<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;10 10</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br></pre></td></tr></table></figure>
-<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;18</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>代码模拟即可。</p>
-]]></content>
-      <categories>
-        <category>洛谷题解</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CF382B Number Busters</title>
-    <url>/article/sol-CF382B/</url>
-    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/CF382B">CF382B Number Busters</a>。</p>
-<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><blockquote>
-<p>两个人玩游戏，他们有 $a$，$b$，$w$，$x$，$c$ 五个数，每秒可执行一次操作，要使最终结果为 $c\le a$。操作如下：如果 $b\ge x$，则 $b=b-x$，同时 $c=c-1$；如果 $b&lt;x$，则 $a=a-1$，$c=c-1$，$b=w-(x-b)$。求 $c\le a$  时已经走过的秒数。</p>
-</blockquote>
-<p>题目已经说的很清楚了，按照模拟即可。</p>
-<p>在 $c&lt;a$ 时，执行以下操作：</p>
-<ul>
-<li>$b \ge x$ 时，$b=b−1$，$c=c−1$。</li>
-<li>$b &lt; x$ 时，$a=a−1$，$c=c − 1$，$b=w−x+b$。</li>
-</ul>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line">	</span><br><span class="line">	LL a , b , w , x , c;</span><br><span class="line">	cin &gt;&gt; a &gt;&gt; b &gt;&gt; w &gt;&gt; x &gt;&gt; c; <span class="comment">//5个数字</span></span><br><span class="line">	</span><br><span class="line">	LL ans = <span class="number">0</span>; <span class="comment">//最后的秒数</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(c &gt; a) <span class="comment">//模拟</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b &gt;= x)</span><br><span class="line">			b -= x , c --;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(b &lt; x)</span><br><span class="line">			a -- , c -- , b = w - (x - b);</span><br><span class="line">		</span><br><span class="line">		ans ++; <span class="comment">//秒数++</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>洛谷题解</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>✨简简单单写程序</title>
     <url>/article/Hello-Word/</url>
     <content><![CDATA[<blockquote>
@@ -1042,6 +986,27 @@
       </tags>
   </entry>
   <entry>
+    <title>CF382B Number Busters</title>
+    <url>/article/sol-CF382B/</url>
+    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/CF382B">CF382B Number Busters</a>。</p>
+<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><blockquote>
+<p>两个人玩游戏，他们有 $a$，$b$，$w$，$x$，$c$ 五个数，每秒可执行一次操作，要使最终结果为 $c\le a$。操作如下：如果 $b\ge x$，则 $b=b-x$，同时 $c=c-1$；如果 $b&lt;x$，则 $a=a-1$，$c=c-1$，$b=w-(x-b)$。求 $c\le a$  时已经走过的秒数。</p>
+</blockquote>
+<p>题目已经说的很清楚了，按照模拟即可。</p>
+<p>在 $c&lt;a$ 时，执行以下操作：</p>
+<ul>
+<li>$b \ge x$ 时，$b=b−1$，$c=c−1$。</li>
+<li>$b &lt; x$ 时，$a=a−1$，$c=c − 1$，$b=w−x+b$。</li>
+</ul>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line">	</span><br><span class="line">	LL a , b , w , x , c;</span><br><span class="line">	cin &gt;&gt; a &gt;&gt; b &gt;&gt; w &gt;&gt; x &gt;&gt; c; <span class="comment">//5个数字</span></span><br><span class="line">	</span><br><span class="line">	LL ans = <span class="number">0</span>; <span class="comment">//最后的秒数</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(c &gt; a) <span class="comment">//模拟</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b &gt;= x)</span><br><span class="line">			b -= x , c --;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(b &lt; x)</span><br><span class="line">			a -- , c -- , b = w - (x - b);</span><br><span class="line">		</span><br><span class="line">		ans ++; <span class="comment">//秒数++</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>洛谷题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>P10264 [GESP202403 八级] 接竹竿</title>
     <url>/article/sol-P10264/</url>
     <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/p10264">P10264 [GESP202403 八级] 接竹竿</a></p>
@@ -1160,6 +1125,41 @@ ANS=\frac{W\times H}{\operatorname{LCF^2}}</script><h3 id="Code"><a href="#Code"
 \kern{84px}1\kern{15px}\cdots\kern{5px}11(\text B)\\
 (114514)_{10} = (BF52)_{16}</script><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="function">string <span class="title">zhuanhuan</span><span class="params">(<span class="type">int</span> number , <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	string ans;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(number)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(number % n &gt;= <span class="number">10</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			ans += <span class="built_in">char</span>(number % n + <span class="string">&#x27;A&#x27;</span> - <span class="number">10</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			ans += <span class="built_in">char</span>(number % n + <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		number /= n;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">reverse</span>(ans.<span class="built_in">begin</span>() , ans.<span class="built_in">end</span>());</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><p>拼接上面代码+根据题目模拟即可。</p>
+]]></content>
+      <categories>
+        <category>洛谷题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P10313 [SHUPC 2024] 占地斗士！</title>
+    <url>/article/sol-P10313/</url>
+    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P10313">P10313 [SHUPC 2024]  占地斗士！</a>。</p>
+<p>简单搜索题。</p>
+<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>容易发现，$1\le n,m\le10$，地图很小，所以考虑 DFS 算法。</p>
+<p>其实是回溯，不是深度优先搜索。</p>
+<p>题目不难，但细节多。</p>
+<ul>
+<li>用变量存下已经放置的卡牌数量。</li>
+<li><strong>用 $\mathcal{vis}$ 记录此卡牌是否放置过（不能直接改地图，这是回溯的重要部分）</strong>。</li>
+<li>其它就是回溯+剪枝即可。</li>
+</ul>
+<p>一些细节：</p>
+<ul>
+<li>暴力枚举每个形状可以放的所有位置。</li>
+<li>是 <code>#</code> 不能放，换个位置。</li>
+<li>可以放的话，卡牌数自增，答案加上<strong>占地格子数</strong>，<strong>不是 $1$</strong>。</li>
+<li>可以放，记得 $vis$ 标记位置。</li>
+</ul>
+<p>若所有的卡牌都可以放入，那么直接输出 $18$，不用搜了，<strong>搜了小心 $\tt TLE$，程序卡死</strong>。</p>
+<p>都可以放入的数据如下：</p>
+<blockquote>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;10 10</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br></pre></td></tr></table></figure>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;18</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>代码模拟即可。</p>
 ]]></content>
       <categories>
         <category>洛谷题解</category>
