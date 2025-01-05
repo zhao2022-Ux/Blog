@@ -20,6 +20,7 @@ https://blog.heishao.me/article/sol-P10532/
 https://blog.heishao.me/article/sol-P10314/
 https://blog.heishao.me/archives/index.html
 https://blog.heishao.me/
+https://blog.heishao.me/tags/%E9%A2%98%E8%A7%A3/
 https://blog.heishao.me/tags/PicX/
 https://blog.heishao.me/tags/%E6%B4%9B%E8%B0%B7/
 https://blog.heishao.me/tags/Github/
@@ -27,8 +28,7 @@ https://blog.heishao.me/tags/%E5%9B%BE%E5%BA%8A/
 https://blog.heishao.me/tags/%E6%95%99%E7%A8%8B/
 https://blog.heishao.me/tags/%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/
 https://blog.heishao.me/tags/%E6%B4%9B%E8%B0%B7-%E6%95%99%E7%A8%8B/
-https://blog.heishao.me/tags/%E9%A2%98%E8%A7%A3/
+https://blog.heishao.me/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/
 https://blog.heishao.me/categories/%E7%A7%91%E6%8A%80%C2%B7%E5%B7%A5%E7%A8%8B/
 https://blog.heishao.me/categories/%E7%AE%97%E6%B3%95%C2%B7%E7%90%86%E8%AE%BA/
-https://blog.heishao.me/categories/%E6%B4%9B%E8%B0%B7%E9%A2%98%E8%A7%A3/
 https://blog.heishao.me/categories/%E4%B8%AA%E4%BA%BA%E8%AE%B0%E5%BD%95/
