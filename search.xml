@@ -10,6 +10,227 @@
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">double</span> a,b,c=<span class="built_in">sqrt</span>(<span class="number">5</span>);</span><br><span class="line">	cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%.0lf&quot;</span>,((b-a*(<span class="number">1.0</span>-c)/<span class="number">2.0</span>)*(<span class="number">3.0</span>+c)/<span class="number">2.0</span>+((a*(<span class="number">1.0</span>+c)/<span class="number">2.0</span>-b)*(<span class="number">3.0</span>-c)/<span class="number">2</span>))/c);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
+    <title>CF382B Number Busters</title>
+    <url>/article/sol-CF382B/</url>
+    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/CF382B">CF382B Number Busters</a>。</p>
+<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><blockquote>
+<p>两个人玩游戏，他们有 $a$，$b$，$w$，$x$，$c$ 五个数，每秒可执行一次操作，要使最终结果为 $c\le a$。操作如下：如果 $b\ge x$，则 $b=b-x$，同时 $c=c-1$；如果 $b&lt;x$，则 $a=a-1$，$c=c-1$，$b=w-(x-b)$。求 $c\le a$  时已经走过的秒数。</p>
+</blockquote>
+<p>题目已经说的很清楚了，按照模拟即可。</p>
+<p>在 $c&lt;a$ 时，执行以下操作：</p>
+<ul>
+<li>$b \ge x$ 时，$b=b−1$，$c=c−1$。</li>
+<li>$b &lt; x$ 时，$a=a−1$，$c=c − 1$，$b=w−x+b$。</li>
+</ul>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line">	</span><br><span class="line">	LL a , b , w , x , c;</span><br><span class="line">	cin &gt;&gt; a &gt;&gt; b &gt;&gt; w &gt;&gt; x &gt;&gt; c; <span class="comment">//5个数字</span></span><br><span class="line">	</span><br><span class="line">	LL ans = <span class="number">0</span>; <span class="comment">//最后的秒数</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(c &gt; a) <span class="comment">//模拟</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b &gt;= x)</span><br><span class="line">			b -= x , c --;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(b &lt; x)</span><br><span class="line">			a -- , c -- , b = w - (x - b);</span><br><span class="line">		</span><br><span class="line">		ans ++; <span class="comment">//秒数++</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>洛谷题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P10264 [GESP202403 八级] 接竹竿</title>
+    <url>/article/sol-P10264/</url>
+    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/p10264">P10264 [GESP202403 八级] 接竹竿</a></p>
+<p>思维题，考虑倍增。</p>
+<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><ul>
+<li>$30pts$ 模拟，$1\le a_i\le13$，根据题意，队列中不会存在两个相同的点数，所以队列的最大长度为 $13$，对于每一个 $(l,r)$，模拟加队列的过程，每添加一个牌从队列头开始查找有无相同的点数，如有则从队列中删除所有后续的元素。复杂度为 $O(T\times q\times N\times13)$。</li>
+<li>$100pts$ 倍增，一共 $13$ 个点数，由题意，从自身出发，到下一个相同点数，这样的整段都可以被取走。每个点都可以维护下一个相同点数的位置。\<br><strong>但是这样的跳跃速度还是太慢了</strong>，通过倍增来加速。$nxt[i][j]$ 表示从 $i$ 出发的，第 $2\land j$ 个段的结尾位置。可知 $nxt[i][j+1]=nxt[nxt[i][j]+1][j]$。\<br>复杂度 $O(T\times q\times \log N)$。</li>
+</ul>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Reprinted from gesp.ccf.org</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"><span class="type">int</span> nxt[N][<span class="number">30</span>], pos[<span class="number">20</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="type">int</span> n;</span><br><span class="line">		cin &gt;&gt; n;</span><br><span class="line">		<span class="built_in">memset</span>(pos, <span class="number">0</span>, <span class="keyword">sizeof</span> pos);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">			cin &gt;&gt; a[i];</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;= <span class="number">20</span>; j++)nxt[i][j] = n + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">			<span class="keyword">if</span> (!pos[a[i]]) &#123;</span><br><span class="line">				nxt[a[i]][<span class="number">0</span>] = n + <span class="number">1</span>;</span><br><span class="line">				pos[a[i]] = i;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				nxt[i][<span class="number">0</span>] = pos[a[i]];</span><br><span class="line">				pos[a[i]] = i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">20</span>; j++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (nxt[i][j - <span class="number">1</span>] + <span class="number">1</span> &lt;= n)</span><br><span class="line">					nxt[i][j] = nxt[nxt[i][j - <span class="number">1</span>] + <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="type">int</span> q;</span><br><span class="line">		cin &gt;&gt; q;</span><br><span class="line">		<span class="keyword">while</span> (q--) &#123;</span><br><span class="line">			<span class="type">int</span> l, r;</span><br><span class="line">			cin &gt;&gt; l &gt;&gt; r;</span><br><span class="line">			<span class="type">int</span> ii = l;</span><br><span class="line">			<span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">while</span> (ii &lt;= r) &#123;</span><br><span class="line">				<span class="keyword">while</span> (ii &lt;= r &amp;&amp; nxt[ii][<span class="number">0</span>] &gt; r) &#123;</span><br><span class="line">					ii++;</span><br><span class="line">					ans++;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> (ii &gt; r)<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">20</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">					<span class="keyword">if</span> (nxt[ii][j] &lt;= r) &#123;</span><br><span class="line">						ii = nxt[ii][j];</span><br><span class="line">						<span class="keyword">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				ii++;</span><br><span class="line">			&#125;</span><br><span class="line">			cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>洛谷题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P10313 [SHUPC 2024] 占地斗士！</title>
+    <url>/article/sol-P10313/</url>
+    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P10313">P10313 [SHUPC 2024]  占地斗士！</a>。</p>
+<p>简单搜索题。</p>
+<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>容易发现，$1\le n,m\le10$，地图很小，所以考虑 DFS 算法。</p>
+<p>其实是回溯，不是深度优先搜索。</p>
+<p>题目不难，但细节多。</p>
+<ul>
+<li>用变量存下已经放置的卡牌数量。</li>
+<li><strong>用 $\mathcal{vis}$ 记录此卡牌是否放置过（不能直接改地图，这是回溯的重要部分）</strong>。</li>
+<li>其它就是回溯+剪枝即可。</li>
+</ul>
+<p>一些细节：</p>
+<ul>
+<li>暴力枚举每个形状可以放的所有位置。</li>
+<li>是 <code>#</code> 不能放，换个位置。</li>
+<li>可以放的话，卡牌数自增，答案加上<strong>占地格子数</strong>，<strong>不是 $1$</strong>。</li>
+<li>可以放，记得 $vis$ 标记位置。</li>
+</ul>
+<p>若所有的卡牌都可以放入，那么直接输出 $18$，不用搜了，<strong>搜了小心 $\tt TLE$，程序卡死</strong>。</p>
+<p>都可以放入的数据如下：</p>
+<blockquote>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;10 10</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br></pre></td></tr></table></figure>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;18</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>代码模拟即可。</p>
+]]></content>
+      <categories>
+        <category>洛谷题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P10314 [SHUPC 2024] 函数</title>
+    <url>/article/sol-P10314/</url>
+    <content><![CDATA[<p>题目传送门：<a href="\problem\P10314">P10314 [SHUPC 2024] 函数</a></p>
+<p>解函数题。</p>
+<hr>
+<h3 id="函数解读"><a href="#函数解读" class="headerlink" title="函数解读"></a>函数解读</h3><script type="math/tex; mode=display">f(x)=x-0.5+\frac{\arctan(\cot(\pi x))}{\pi}</script><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">$\operatorname{c++}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\arctan$</td>
+<td style="text-align:center">反正切函数</td>
+<td style="text-align:center">$\operatorname{atan}(\operatorname{double} x)$</td>
+</tr>
+<tr>
+<td style="text-align:center">$\cot$</td>
+<td style="text-align:center">余切函数</td>
+<td style="text-align:center">$1.0/\tan(\operatorname{double} x)$</td>
+</tr>
+<tr>
+<td style="text-align:center">$\pi$</td>
+<td style="text-align:center">圆周率</td>
+<td style="text-align:center"><code>std::numbers::pi</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>所以，我们可以得出代码：</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;<span class="keyword">return</span> x - <span class="number">0.5</span> + <span class="built_in">atan</span>(<span class="number">1.0</span> / <span class="built_in">tan</span>(std::numbers::pi * x)) / std::numbers::pi;&#125;</span><br></pre></td></tr></table></figure></h2><h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;<span class="keyword">return</span> x - <span class="number">0.5</span> + <span class="built_in">atan</span>(<span class="number">1.0</span> / <span class="built_in">tan</span>(std::numbers::pi * x)) / std::numbers::pi;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> T;</span><br><span class="line">	cin &gt;&gt; T;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(T --)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">double</span> x;</span><br><span class="line">		cin &gt;&gt; x;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%7f\n&quot;</span>, <span class="built_in">f</span>(x));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><ul>
+<li>Q：为什么过不了编译？</li>
+<li>A：因为有 <code>std::numbers::pi</code>，所以要用 <code>c++20</code> 提交。</li>
+</ul>
+<hr>
+<ul>
+<li>Q：为什么 $\cot(x) = \frac{1}{\tan x}$？</li>
+<li>A：按照<strong>三角函数</strong>，$\cot x = \frac{b}{a}$ , $\tan x = \frac{a}{b}$，即 $\cot$ 和 $\tan$ 互为倒数，所以$\cot(x) = \frac{1}{\tan x}$。<h5 id="有问题欢迎评论区留言"><a href="#有问题欢迎评论区留言" class="headerlink" title="有问题欢迎评论区留言~"></a>有问题欢迎评论区留言~</h5></li>
+</ul>
+]]></content>
+      <categories>
+        <category>洛谷题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>P10401 「XSOI-R1」区间操作</title>
+    <url>/article/sol-P10401/</url>
+    <content><![CDATA[<p>由于 Hexo 无法转义，详见原文：<a href="https://www.luogu.com.cn/article/2ifgwc5e。">https://www.luogu.com.cn/article/2ifgwc5e。</a></p>
+]]></content>
+      <categories>
+        <category>洛谷题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>✨五分钟从零搭建自己的图床</title>
+    <url>/article/PicX/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在洛谷，拥有洛谷图床。但是，洛谷图床有些时候对用户名颜色、文件大小等有要求。于是，小编今天教你<strong>不用代码</strong>，五分钟搭建一个属于自己的个人图床。</p>
+<h3 id="PicX"><a href="#PicX" class="headerlink" title="PicX"></a>PicX</h3><p>?️ PicX 是一款基于 GitHub API 开发的图床工具，提供图片上传托管、生成图片链接和常用图片工具箱服务。</p>
+<p>? 建议将本站添加到浏览器收藏夹，方便下次使用。 快捷键：Ctrl + D</p>
+<p>? 作者：@<a href="https://xpoet.cn/">XPoet</a></p>
+<p>? 仓库：<a href="https://github.com/XPoet/picx">https://github.com/XPoet/picx</a></p>
+<p>? 文档：<a href="https://picx-docs.xpoet.cn">https://picx-docs.xpoet.cn</a></p>
+<h3 id="前置要求"><a href="#前置要求" class="headerlink" title="前置要求"></a>前置要求</h3><ul>
+<li>拥有一个 Github 账号，没有可以<a href="https://docs.github.com/zh/get-started/start-your-journey/creating-an-account-on-github">注册</a>。</li>
+</ul>
+<h3 id="新建存储库"><a href="#新建存储库" class="headerlink" title="新建存储库"></a>新建存储库</h3><ol>
+<li>打开<a href="https://github.com/zhao2022-Ux?tab=repositories">个人存储库</a>，点击 $\tt{\color{green} New}$，转到新建页面。</li>
+<li>创建一个新项目，如下图所示：<br><img src="https://cdn.zhaohonghao-qwq.com/img/img无标1题.1hs3bvxs1u.png" alt=""></li>
+</ol>
+<h3 id="初始化-PicX"><a href="#初始化-PicX" class="headerlink" title="初始化 PicX"></a>初始化 PicX</h3><ul>
+<li><p>使用 OAuth。</p>
+<blockquote>
+<ol>
+<li>打开官网<a href="https://picx.xpoet.cn/#/">https://picx.xpoet.cn/#/</a>，单击<strong>使用 GitHub OAuth 授权登录</strong>。</li>
+<li>按照 Github 给出的指示一步一步下去。</li>
+<li>进入<a href="https://picx.xpoet.cn/#/config">图床配置</a> 填写用户名，项目名称，目录等，就好了。</li>
+</ol>
+</blockquote>
+</li>
+<li><p>使用 Token。</p>
+<blockquote>
+<ol>
+<li>打开官网<a href="https://picx.xpoet.cn/#/">https://picx.xpoet.cn/#/</a>，单击<strong>填写 GitHub Token 登录</strong>。</li>
+<li>打开 Github 新建 Token，见<a href="https://www.bilibili.com/video/BV1QzhUebEHi/?zw&amp;spm_id_from=888.80996.embed_old&amp;vd_source=6a0b71a226325dba546e5d6dd9e9c7d0">视频</a>。</li>
+</ol>
+<ul>
+<li>⚠️<strong>Token 只会在创建后出现一次，刷新就没了，请自己截图保存。</strong></li>
+</ul>
+<ol>
+<li>将 Token 输入即可绑定。</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h3 id="上传图片"><a href="#上传图片" class="headerlink" title="上传图片"></a>上传图片</h3><ul>
+<li>按照平时使用洛谷图床的步骤使用即可。</li>
+<li>点击 <strong>复制链接</strong> 即可获取图片链接。</li>
+</ul>
+<h2 id="自定义域名（可选）"><a href="#自定义域名（可选）" class="headerlink" title="自定义域名（可选）"></a>自定义域名（可选）</h2><p>有些人不喜欢 GithubUserName.github.io 这个域名，那么就自己买一个域名用来绑定图床，比如 cdn.luogu.com.cn。</p>
+<h3 id="将网站部署至-Vercel"><a href="#将网站部署至-Vercel" class="headerlink" title="将网站部署至 Vercel"></a>将网站部署至 Vercel</h3><ol>
+<li>打开 <a href="vercel.com">Vercel</a>，登录账号，没有可以注册。</li>
+<li>点击 $\tt{Add New}$ $\dots$，选择 Project。</li>
+<li>找到 Import Git Repository，将图床的 Github 项目名找到，点击 Import，找不到可以搜索。</li>
+<li>按照指南一步一步下去，最后完成会出现烟花界面。</li>
+</ol>
+<h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><ol>
+<li>打开自己的域名运营商，找到域名解析控制台。</li>
+<li>添加 <code>CHEAM</code> 类型的域名解析，值为 <code>cname.vercel-dns.com</code>（在项目已经部署至 Vercel 的情况下）。</li>
+<li>打开 Vercel，找到项目，点击 Settings，找到 domain，在里面输入域名。<br><img src="https://cdn.zhaohonghao-qwq.com/img/无标题.7ax1mek27a.webp" alt=""></li>
+</ol>
+<p>最后稍等一会，域名绑定成功。</p>
+<h3 id="更改路径"><a href="#更改路径" class="headerlink" title="更改路径"></a>更改路径</h3><ol>
+<li>打开 <a href="https://picx.xpoet.cn/#/">https://picx.xpoet.cn/#/</a>，右侧找到设置，下拉找到图片链接规则配置。</li>
+<li>将 GitHub Pages 的链接规则改为 <code>https://自定义域名/&#123;&#123;path&#125;&#125;</code>，出现警告，不用管它。</li>
+<li>将数据同步到云端仓库。<br><img src="https://cdn.zhaohonghao-qwq.com/img/屏幕截图-2024-07-07-173856.2vemh5ijie.webp" alt=""></li>
+<li>完成配置，可以自己测试，剩下功能自己探索。</li>
+</ol>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li><strong>请勿使用 PicX 上传违反你当地法律的图片，所造成的一切后果与作者无关。</strong></li>
+<li>每次更改设置后或上传图片后，要更新至云端。</li>
+<li><strong>Github Token 只会在创建后出现一次，刷新就没了，请自己截图保存。</strong></li>
+<li>有时更新失败，可能是 Github 被墙了，请稍后在尝试。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>科技·工程</category>
+      </categories>
+      <tags>
+        <tag>PicX</tag>
+        <tag>洛谷</tag>
+        <tag>Github</tag>
+        <tag>图床</tag>
+        <tag>教程</tag>
+        <tag>视频教程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>✨简简单单写程序</title>
     <url>/article/Hello-Word/</url>
     <content><![CDATA[<blockquote>
@@ -903,130 +1124,18 @@
       </tags>
   </entry>
   <entry>
-    <title>P10264 [GESP202403 八级] 接竹竿</title>
-    <url>/article/sol-P10264/</url>
-    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/p10264">P10264 [GESP202403 八级] 接竹竿</a></p>
-<p>思维题，考虑倍增。</p>
-<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><ul>
-<li>$30pts$ 模拟，$1\le a_i\le13$，根据题意，队列中不会存在两个相同的点数，所以队列的最大长度为 $13$，对于每一个 $(l,r)$，模拟加队列的过程，每添加一个牌从队列头开始查找有无相同的点数，如有则从队列中删除所有后续的元素。复杂度为 $O(T\times q\times N\times13)$。</li>
-<li>$100pts$ 倍增，一共 $13$ 个点数，由题意，从自身出发，到下一个相同点数，这样的整段都可以被取走。每个点都可以维护下一个相同点数的位置。\<br><strong>但是这样的跳跃速度还是太慢了</strong>，通过倍增来加速。$nxt[i][j]$ 表示从 $i$ 出发的，第 $2\land j$ 个段的结尾位置。可知 $nxt[i][j+1]=nxt[nxt[i][j]+1][j]$。\<br>复杂度 $O(T\times q\times \log N)$。</li>
-</ul>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//Reprinted from gesp.ccf.org</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"><span class="type">int</span> nxt[N][<span class="number">30</span>], pos[<span class="number">20</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--) &#123;</span><br><span class="line">		<span class="type">int</span> n;</span><br><span class="line">		cin &gt;&gt; n;</span><br><span class="line">		<span class="built_in">memset</span>(pos, <span class="number">0</span>, <span class="keyword">sizeof</span> pos);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">			cin &gt;&gt; a[i];</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;= <span class="number">20</span>; j++)nxt[i][j] = n + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">			<span class="keyword">if</span> (!pos[a[i]]) &#123;</span><br><span class="line">				nxt[a[i]][<span class="number">0</span>] = n + <span class="number">1</span>;</span><br><span class="line">				pos[a[i]] = i;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				nxt[i][<span class="number">0</span>] = pos[a[i]];</span><br><span class="line">				pos[a[i]] = i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">20</span>; j++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (nxt[i][j - <span class="number">1</span>] + <span class="number">1</span> &lt;= n)</span><br><span class="line">					nxt[i][j] = nxt[nxt[i][j - <span class="number">1</span>] + <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="type">int</span> q;</span><br><span class="line">		cin &gt;&gt; q;</span><br><span class="line">		<span class="keyword">while</span> (q--) &#123;</span><br><span class="line">			<span class="type">int</span> l, r;</span><br><span class="line">			cin &gt;&gt; l &gt;&gt; r;</span><br><span class="line">			<span class="type">int</span> ii = l;</span><br><span class="line">			<span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">while</span> (ii &lt;= r) &#123;</span><br><span class="line">				<span class="keyword">while</span> (ii &lt;= r &amp;&amp; nxt[ii][<span class="number">0</span>] &gt; r) &#123;</span><br><span class="line">					ii++;</span><br><span class="line">					ans++;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span> (ii &gt; r)<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">20</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">					<span class="keyword">if</span> (nxt[ii][j] &lt;= r) &#123;</span><br><span class="line">						ii = nxt[ii][j];</span><br><span class="line">						<span class="keyword">break</span>;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				ii++;</span><br><span class="line">			&#125;</span><br><span class="line">			cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>洛谷题解</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>✨五分钟从零搭建自己的图床</title>
-    <url>/article/PicX/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在洛谷，拥有洛谷图床。但是，洛谷图床有些时候对用户名颜色、文件大小等有要求。于是，小编今天教你<strong>不用代码</strong>，五分钟搭建一个属于自己的个人图床。</p>
-<h3 id="PicX"><a href="#PicX" class="headerlink" title="PicX"></a>PicX</h3><p>?️ PicX 是一款基于 GitHub API 开发的图床工具，提供图片上传托管、生成图片链接和常用图片工具箱服务。</p>
-<p>? 建议将本站添加到浏览器收藏夹，方便下次使用。 快捷键：Ctrl + D</p>
-<p>? 作者：@<a href="https://xpoet.cn/">XPoet</a></p>
-<p>? 仓库：<a href="https://github.com/XPoet/picx">https://github.com/XPoet/picx</a></p>
-<p>? 文档：<a href="https://picx-docs.xpoet.cn">https://picx-docs.xpoet.cn</a></p>
-<h3 id="前置要求"><a href="#前置要求" class="headerlink" title="前置要求"></a>前置要求</h3><ul>
-<li>拥有一个 Github 账号，没有可以<a href="https://docs.github.com/zh/get-started/start-your-journey/creating-an-account-on-github">注册</a>。</li>
-</ul>
-<h3 id="新建存储库"><a href="#新建存储库" class="headerlink" title="新建存储库"></a>新建存储库</h3><ol>
-<li>打开<a href="https://github.com/zhao2022-Ux?tab=repositories">个人存储库</a>，点击 $\tt{\color{green} New}$，转到新建页面。</li>
-<li>创建一个新项目，如下图所示：<br><img src="https://cdn.zhaohonghao-qwq.com/img/img无标1题.1hs3bvxs1u.png" alt=""></li>
+    <title>P10415 [蓝桥杯 2023 国 A] 切割</title>
+    <url>/article/sol-P10415/</url>
+    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P10415">P10415 [蓝桥杯 2023 国 A] 切割【暂无数据】</a>。</p>
+<p>简单数学题。</p>
+<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><ol>
+<li>求出 $W$ 和 $H\ge2$ 的<strong>最小公因数</strong>。记为 $LCF$。</li>
+<li>将 $LCF$ 依次去除 $W,H$。记为 $Lw,Lh$。</li>
+<li>答案为 $Lw\times Lh$。</li>
 </ol>
-<h3 id="初始化-PicX"><a href="#初始化-PicX" class="headerlink" title="初始化 PicX"></a>初始化 PicX</h3><ul>
-<li><p>使用 OAuth。</p>
-<blockquote>
-<ol>
-<li>打开官网<a href="https://picx.xpoet.cn/#/">https://picx.xpoet.cn/#/</a>，单击<strong>使用 GitHub OAuth 授权登录</strong>。</li>
-<li>按照 Github 给出的指示一步一步下去。</li>
-<li>进入<a href="https://picx.xpoet.cn/#/config">图床配置</a> 填写用户名，项目名称，目录等，就好了。</li>
-</ol>
-</blockquote>
-</li>
-<li><p>使用 Token。</p>
-<blockquote>
-<ol>
-<li>打开官网<a href="https://picx.xpoet.cn/#/">https://picx.xpoet.cn/#/</a>，单击<strong>填写 GitHub Token 登录</strong>。</li>
-<li>打开 Github 新建 Token，见<a href="https://www.bilibili.com/video/BV1QzhUebEHi/?zw&amp;spm_id_from=888.80996.embed_old&amp;vd_source=6a0b71a226325dba546e5d6dd9e9c7d0">视频</a>。</li>
-</ol>
-<ul>
-<li>⚠️<strong>Token 只会在创建后出现一次，刷新就没了，请自己截图保存。</strong></li>
-</ul>
-<ol>
-<li>将 Token 输入即可绑定。</li>
-</ol>
-</blockquote>
-</li>
-</ul>
-<h3 id="上传图片"><a href="#上传图片" class="headerlink" title="上传图片"></a>上传图片</h3><ul>
-<li>按照平时使用洛谷图床的步骤使用即可。</li>
-<li>点击 <strong>复制链接</strong> 即可获取图片链接。</li>
-</ul>
-<h2 id="自定义域名（可选）"><a href="#自定义域名（可选）" class="headerlink" title="自定义域名（可选）"></a>自定义域名（可选）</h2><p>有些人不喜欢 GithubUserName.github.io 这个域名，那么就自己买一个域名用来绑定图床，比如 cdn.luogu.com.cn。</p>
-<h3 id="将网站部署至-Vercel"><a href="#将网站部署至-Vercel" class="headerlink" title="将网站部署至 Vercel"></a>将网站部署至 Vercel</h3><ol>
-<li>打开 <a href="vercel.com">Vercel</a>，登录账号，没有可以注册。</li>
-<li>点击 $\tt{Add New}$ $\dots$，选择 Project。</li>
-<li>找到 Import Git Repository，将图床的 Github 项目名找到，点击 Import，找不到可以搜索。</li>
-<li>按照指南一步一步下去，最后完成会出现烟花界面。</li>
-</ol>
-<h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><ol>
-<li>打开自己的域名运营商，找到域名解析控制台。</li>
-<li>添加 <code>CHEAM</code> 类型的域名解析，值为 <code>cname.vercel-dns.com</code>（在项目已经部署至 Vercel 的情况下）。</li>
-<li>打开 Vercel，找到项目，点击 Settings，找到 domain，在里面输入域名。<br><img src="https://cdn.zhaohonghao-qwq.com/img/无标题.7ax1mek27a.webp" alt=""></li>
-</ol>
-<p>最后稍等一会，域名绑定成功。</p>
-<h3 id="更改路径"><a href="#更改路径" class="headerlink" title="更改路径"></a>更改路径</h3><ol>
-<li>打开 <a href="https://picx.xpoet.cn/#/">https://picx.xpoet.cn/#/</a>，右侧找到设置，下拉找到图片链接规则配置。</li>
-<li>将 GitHub Pages 的链接规则改为 <code>https://自定义域名/&#123;&#123;path&#125;&#125;</code>，出现警告，不用管它。</li>
-<li>将数据同步到云端仓库。<br><img src="https://cdn.zhaohonghao-qwq.com/img/屏幕截图-2024-07-07-173856.2vemh5ijie.webp" alt=""></li>
-<li>完成配置，可以自己测试，剩下功能自己探索。</li>
-</ol>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
-<li><strong>请勿使用 PicX 上传违反你当地法律的图片，所造成的一切后果与作者无关。</strong></li>
-<li>每次更改设置后或上传图片后，要更新至云端。</li>
-<li><strong>Github Token 只会在创建后出现一次，刷新就没了，请自己截图保存。</strong></li>
-<li>有时更新失败，可能是 Github 被墙了，请稍后在尝试。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>科技·工程</category>
-      </categories>
-      <tags>
-        <tag>PicX</tag>
-        <tag>洛谷</tag>
-        <tag>Github</tag>
-        <tag>图床</tag>
-        <tag>教程</tag>
-        <tag>视频教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CF382B Number Busters</title>
-    <url>/article/sol-CF382B/</url>
-    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/CF382B">CF382B Number Busters</a>。</p>
-<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><blockquote>
-<p>两个人玩游戏，他们有 $a$，$b$，$w$，$x$，$c$ 五个数，每秒可执行一次操作，要使最终结果为 $c\le a$。操作如下：如果 $b\ge x$，则 $b=b-x$，同时 $c=c-1$；如果 $b&lt;x$，则 $a=a-1$，$c=c-1$，$b=w-(x-b)$。求 $c\le a$  时已经走过的秒数。</p>
-</blockquote>
-<p>题目已经说的很清楚了，按照模拟即可。</p>
-<p>在 $c&lt;a$ 时，执行以下操作：</p>
-<ul>
-<li>$b \ge x$ 时，$b=b−1$，$c=c−1$。</li>
-<li>$b &lt; x$ 时，$a=a−1$，$c=c − 1$，$b=w−x+b$。</li>
-</ul>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line">	</span><br><span class="line">	LL a , b , w , x , c;</span><br><span class="line">	cin &gt;&gt; a &gt;&gt; b &gt;&gt; w &gt;&gt; x &gt;&gt; c; <span class="comment">//5个数字</span></span><br><span class="line">	</span><br><span class="line">	LL ans = <span class="number">0</span>; <span class="comment">//最后的秒数</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(c &gt; a) <span class="comment">//模拟</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(b &gt;= x)</span><br><span class="line">			b -= x , c --;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(b &lt; x)</span><br><span class="line">			a -- , c -- , b = w - (x - b);</span><br><span class="line">		</span><br><span class="line">		ans ++; <span class="comment">//秒数++</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>洛谷题解</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>P10401 「XSOI-R1」区间操作</title>
-    <url>/article/sol-P10401/</url>
-    <content><![CDATA[<p>由于 Hexo 无法转义，详见原文：<a href="https://www.luogu.com.cn/article/2ifgwc5e。">https://www.luogu.com.cn/article/2ifgwc5e。</a></p>
+<p>计算公式：</p>
+<script type="math/tex; mode=display">
+ANS=\frac{W\times H}{\operatorname{LCF^2}}</script><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><p>模拟即可。</p>
 ]]></content>
       <categories>
         <category>洛谷题解</category>
@@ -1060,121 +1169,12 @@
       </tags>
   </entry>
   <entry>
-    <title>P10314 [SHUPC 2024] 函数</title>
-    <url>/article/sol-P10314/</url>
-    <content><![CDATA[<p>题目传送门：<a href="\problem\P10314">P10314 [SHUPC 2024] 函数</a></p>
-<p>解函数题。</p>
-<hr>
-<h3 id="函数解读"><a href="#函数解读" class="headerlink" title="函数解读"></a>函数解读</h3><script type="math/tex; mode=display">f(x)=x-0.5+\frac{\arctan(\cot(\pi x))}{\pi}</script><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">函数</th>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">$\operatorname{c++}$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">$\arctan$</td>
-<td style="text-align:center">反正切函数</td>
-<td style="text-align:center">$\operatorname{atan}(\operatorname{double} x)$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\cot$</td>
-<td style="text-align:center">余切函数</td>
-<td style="text-align:center">$1.0/\tan(\operatorname{double} x)$</td>
-</tr>
-<tr>
-<td style="text-align:center">$\pi$</td>
-<td style="text-align:center">圆周率</td>
-<td style="text-align:center"><code>std::numbers::pi</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>所以，我们可以得出代码：</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;<span class="keyword">return</span> x - <span class="number">0.5</span> + <span class="built_in">atan</span>(<span class="number">1.0</span> / <span class="built_in">tan</span>(std::numbers::pi * x)) / std::numbers::pi;&#125;</span><br></pre></td></tr></table></figure></h2><h4 id="CODE"><a href="#CODE" class="headerlink" title="CODE"></a>CODE</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;<span class="keyword">return</span> x - <span class="number">0.5</span> + <span class="built_in">atan</span>(<span class="number">1.0</span> / <span class="built_in">tan</span>(std::numbers::pi * x)) / std::numbers::pi;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> T;</span><br><span class="line">	cin &gt;&gt; T;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(T --)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">double</span> x;</span><br><span class="line">		cin &gt;&gt; x;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%7f\n&quot;</span>, <span class="built_in">f</span>(x));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><ul>
-<li>Q：为什么过不了编译？</li>
-<li>A：因为有 <code>std::numbers::pi</code>，所以要用 <code>c++20</code> 提交。</li>
-</ul>
-<hr>
-<ul>
-<li>Q：为什么 $\cot(x) = \frac{1}{\tan x}$？</li>
-<li>A：按照<strong>三角函数</strong>，$\cot x = \frac{b}{a}$ , $\tan x = \frac{a}{b}$，即 $\cot$ 和 $\tan$ 互为倒数，所以$\cot(x) = \frac{1}{\tan x}$。<h5 id="有问题欢迎评论区留言"><a href="#有问题欢迎评论区留言" class="headerlink" title="有问题欢迎评论区留言~"></a>有问题欢迎评论区留言~</h5></li>
-</ul>
-]]></content>
-      <categories>
-        <category>洛谷题解</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>P10520 [XJTUPC2024] 榕树之心</title>
     <url>/article/sol-P10520/</url>
     <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/p10520">P10520 [XJTUPC2024] 榕树之心</a>。</p>
 <p>求：</p>
 <script type="math/tex; mode=display">x^{\prime} = \frac{1}{2} x + \frac{1}{2} y</script><script type="math/tex; mode=display">y^{\prime} = \frac{\sqrt{3}}{2} x - \frac{\sqrt{3}}{2} y</script><h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>直接模拟即可（运算记得带小数）。<br>| 式子 | 作用 |<br>| :—————: | :—————: |<br>| $\frac{1}{2}x$ | $x \div 2.0\ \operatorname{or} \ 0.5 \times x$ |<br>| $\sqrt{x}$ |  $\operatorname{sqrt}(x \times 1.0)$ |</p>
 <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> x , y;</span><br><span class="line">	cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; fixed &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">6</span>) &lt;&lt; ((<span class="number">1</span>/<span class="number">2.0</span>)*x) + ((<span class="number">1</span>/<span class="number">2.0</span>) * y) &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; fixed &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">6</span>) &lt;&lt; ((<span class="built_in">sqrt</span>(<span class="number">3.0</span>) / <span class="number">2.0</span>) * x) - ((<span class="built_in">sqrt</span>(<span class="number">3.0</span>) / <span class="number">2.0</span>) * y);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>洛谷题解</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>P10415 [蓝桥杯 2023 国 A] 切割</title>
-    <url>/article/sol-P10415/</url>
-    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P10415">P10415 [蓝桥杯 2023 国 A] 切割【暂无数据】</a>。</p>
-<p>简单数学题。</p>
-<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><ol>
-<li>求出 $W$ 和 $H\ge2$ 的<strong>最小公因数</strong>。记为 $LCF$。</li>
-<li>将 $LCF$ 依次去除 $W,H$。记为 $Lw,Lh$。</li>
-<li>答案为 $Lw\times Lh$。</li>
-</ol>
-<p>计算公式：</p>
-<script type="math/tex; mode=display">
-ANS=\frac{W\times H}{\operatorname{LCF^2}}</script><h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><p>模拟即可。</p>
-]]></content>
-      <categories>
-        <category>洛谷题解</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>P10313 [SHUPC 2024] 占地斗士！</title>
-    <url>/article/sol-P10313/</url>
-    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P10313">P10313 [SHUPC 2024]  占地斗士！</a>。</p>
-<p>简单搜索题。</p>
-<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><p>容易发现，$1\le n,m\le10$，地图很小，所以考虑 DFS 算法。</p>
-<p>其实是回溯，不是深度优先搜索。</p>
-<p>题目不难，但细节多。</p>
-<ul>
-<li>用变量存下已经放置的卡牌数量。</li>
-<li><strong>用 $\mathcal{vis}$ 记录此卡牌是否放置过（不能直接改地图，这是回溯的重要部分）</strong>。</li>
-<li>其它就是回溯+剪枝即可。</li>
-</ul>
-<p>一些细节：</p>
-<ul>
-<li>暴力枚举每个形状可以放的所有位置。</li>
-<li>是 <code>#</code> 不能放，换个位置。</li>
-<li>可以放的话，卡牌数自增，答案加上<strong>占地格子数</strong>，<strong>不是 $1$</strong>。</li>
-<li>可以放，记得 $vis$ 标记位置。</li>
-</ul>
-<p>若所有的卡牌都可以放入，那么直接输出 $18$，不用搜了，<strong>搜了小心 $\tt TLE$，程序卡死</strong>。</p>
-<p>都可以放入的数据如下：</p>
-<blockquote>
-<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;10 10</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br><span class="line">&gt;. . . . . . . . . .</span><br></pre></td></tr></table></figure>
-<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;18</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>代码模拟即可。</p>
-]]></content>
       <categories>
         <category>洛谷题解</category>
       </categories>
@@ -1219,6 +1219,37 @@ ANS=\frac{W\times H}{\operatorname{LCF^2}}</script><h3 id="Code"><a href="#Code"
       </tags>
   </entry>
   <entry>
+    <title>P10692 [SNCPC2024] 表达式矩阵</title>
+    <url>/article/sol-P10692/</url>
+    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P10692">P10692 [SNCPC2024] 表达式矩阵</a>。</p>
+<p>构造一个 $n \times m$ 的矩阵，其中每个位置要么是 $1$，要么是 $\tt +$ 或者 $\tt ∗$，使得在满足每一行每一列均为一个合法表达式的前提下，最小化每一行、每一列表达式的值之和。</p>
+<h3 id="Analysis（转自官方题解）"><a href="#Analysis（转自官方题解）" class="headerlink" title="Analysis（转自官方题解）"></a>Analysis（转自官方题解）</h3><ul>
+<li>对于行列大小均为偶数的情况，以 $6\times 8$ 为例答案形如:<br><img src="https://cdn.zhaohonghao-qwq.com/img/image.2krspnku4c.webp" alt=""></li>
+</ul>
+<p>注意到每行 $/$ 每列恰有一个 $11$。由于无法构造出只含 $1$ 的解，显然使用乘号连接 $11$ 和 $1$ 是最优的。</p>
+<ul>
+<li>对于列大小为奇数的情况，以 $6 × 9$ 为例如：</li>
+</ul>
+<p><img src="https://cdn.zhaohonghao-qwq.com/img/image.wifsgkyuy.webp" alt=""></p>
+<p>所有包含两个 $11$ 的行都必须使用一个 $+$，否则会产生 $11 \times 11$ 的结果，这是我们不能接受的。</p>
+<p>同时，除此之外每多使用一个 $+$，都会使答案增加，所以只需要在这些行中选恰好一个运算符改为 $+$ 即可。</p>
+<p>行大小为奇数的情况类似。</p>
+<ul>
+<li>对于行列大小均为奇数的情况，以 $7 × 9$ 为例：<br><img src="https://cdn.zhaohonghao-qwq.com/img/image.1e8hh1qpt8.webp" alt=""></li>
+</ul>
+<p>所有包含两个 $11$ 的行都必须使用一个 $+$，所有包含两个 $11$ 的列都必须使用一个 $+$。</p>
+<p>如图所示，观察位于交点的六个运算符，需要保证每行都有一个 $+$，每列都有一个 $+$。可以考虑斜着分配。</p>
+<p>通过搜索和合理的剪枝，能在可接受的时间内算出答案。</p>
+<p>考虑答案空间只有 $9 × 9$，可以搜出所有的答案硬编写在代码中。</p>
+]]></content>
+      <categories>
+        <category>洛谷题解</category>
+      </categories>
+      <tags>
+        <tag>题解</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>P10676 『STA - R6』b20</title>
     <url>/article/sol-P10676/</url>
     <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P10676">P10676 『STA - R6』b20</a>。</p>
@@ -1233,29 +1264,6 @@ ANS=\frac{W\times H}{\operatorname{LCF^2}}</script><h3 id="Code"><a href="#Code"
 <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	string s; <span class="comment">//网站名称</span></span><br><span class="line">	string s1;<span class="comment">//粉丝数量</span></span><br><span class="line">	</span><br><span class="line">	cin &gt;&gt; s &gt;&gt; s1;</span><br><span class="line">	cout &lt;&lt; s[<span class="number">0</span>] &lt;&lt; s1;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>洛谷题解</category>
-      </categories>
-      <tags>
-        <tag>题解</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>「EPXLQ 2024」银辉描淡的石桥</title>
-    <url>/article/%E3%80%8CEPXLQ%202024%E3%80%8D/</url>
-    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/T460119">「EPXLQ 2024」银辉描淡的石桥</a>。</p>
-<p>排序后计算 $\text{rank}$ 后输出即可。在此之前，可以先完成<a href="/problem/B3968">此题</a>。</p>
-<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><ul>
-<li>先来解决输出 <code>Hahahai!</code> 的问题。</li>
-</ul>
-<p>定义变量 $flag$，先设置为都相同（<code>true</code>），在定义 $front$ 变量取头数据。后面输入时比较，如果发现不同的数据后，设 $flag$ 为 <code>false</code>。</p>
-<p>判断部分代码如下：<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(a[i].score != front)</span><br><span class="line">&#123;</span><br><span class="line">	flag = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>再来解决排序的问题。</li>
-</ul>
-<p>先定义结构体，有两个参数：编号和成绩。接下来输入边输边存编号 <code>a[i].number = i</code>，后面写好自定义排序，定义映射类型（<del>主打一个方便</del>）的变量存 $\text{rank}$ 后输出即可。</p>
-<p>存 $\text{rank}$ 的代码如下：<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt;= n ; i ++)</span><br><span class="line">&#123;</span><br><span class="line">	Rank[a[i].number] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>解释一下就是 $Rank[$ 这个人的学号 $]=$ 这个人的名次（$a$ 已经从大到小排过序）。</p>
-<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> score;</span><br><span class="line">	<span class="type">int</span> number;</span><br><span class="line">&#125;a[<span class="number">100001</span>];</span><br><span class="line"></span><br><span class="line">map &lt;<span class="type">int</span> , <span class="type">int</span>&gt; Rank;</span><br><span class="line"><span class="type">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(node x , node y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x.score &gt; y.score;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	</span><br><span class="line">	cin &gt;&gt; a[<span class="number">1</span>].score;</span><br><span class="line">	a[<span class="number">1</span>].number = <span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> front = a[<span class="number">1</span>].score;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span> ; i &lt;= n ; i ++)</span><br><span class="line">	&#123;</span><br><span class="line">		cin &gt;&gt; a[i].score;</span><br><span class="line">		a[i].number = i;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(a[i].score != front)</span><br><span class="line">		&#123;</span><br><span class="line">			flag = <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(flag)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;Hahahai!&quot;</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">sort</span>(a + <span class="number">1</span> , a + n + <span class="number">1</span> , cmp);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt;= n ; i ++)</span><br><span class="line">	&#123;</span><br><span class="line">		Rank[a[i].number] = i;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(map &lt;<span class="type">int</span> , <span class="type">int</span>&gt; :: iterator it = Rank.<span class="built_in">begin</span>() ; it != Rank.<span class="built_in">end</span>() ; it ++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; it-&gt;second &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>个人记录</category>
       </categories>
       <tags>
         <tag>题解</tag>
@@ -1292,31 +1300,23 @@ ANS=\frac{W\times H}{\operatorname{LCF^2}}</script><h3 id="Code"><a href="#Code"
       </tags>
   </entry>
   <entry>
-    <title>P10692 [SNCPC2024] 表达式矩阵</title>
-    <url>/article/sol-P10692/</url>
-    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/P10692">P10692 [SNCPC2024] 表达式矩阵</a>。</p>
-<p>构造一个 $n \times m$ 的矩阵，其中每个位置要么是 $1$，要么是 $\tt +$ 或者 $\tt ∗$，使得在满足每一行每一列均为一个合法表达式的前提下，最小化每一行、每一列表达式的值之和。</p>
-<h3 id="Analysis（转自官方题解）"><a href="#Analysis（转自官方题解）" class="headerlink" title="Analysis（转自官方题解）"></a>Analysis（转自官方题解）</h3><ul>
-<li>对于行列大小均为偶数的情况，以 $6\times 8$ 为例答案形如:<br><img src="https://cdn.zhaohonghao-qwq.com/img/image.2krspnku4c.webp" alt=""></li>
+    <title>「EPXLQ 2024」银辉描淡的石桥</title>
+    <url>/article/%E3%80%8CEPXLQ%202024%E3%80%8D/</url>
+    <content><![CDATA[<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>题目传送门：<a href="/problem/T460119">「EPXLQ 2024」银辉描淡的石桥</a>。</p>
+<p>排序后计算 $\text{rank}$ 后输出即可。在此之前，可以先完成<a href="/problem/B3968">此题</a>。</p>
+<h3 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h3><ul>
+<li>先来解决输出 <code>Hahahai!</code> 的问题。</li>
 </ul>
-<p>注意到每行 $/$ 每列恰有一个 $11$。由于无法构造出只含 $1$ 的解，显然使用乘号连接 $11$ 和 $1$ 是最优的。</p>
+<p>定义变量 $flag$，先设置为都相同（<code>true</code>），在定义 $front$ 变量取头数据。后面输入时比较，如果发现不同的数据后，设 $flag$ 为 <code>false</code>。</p>
+<p>判断部分代码如下：<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(a[i].score != front)</span><br><span class="line">&#123;</span><br><span class="line">	flag = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>对于列大小为奇数的情况，以 $6 × 9$ 为例如：</li>
+<li>再来解决排序的问题。</li>
 </ul>
-<p><img src="https://cdn.zhaohonghao-qwq.com/img/image.wifsgkyuy.webp" alt=""></p>
-<p>所有包含两个 $11$ 的行都必须使用一个 $+$，否则会产生 $11 \times 11$ 的结果，这是我们不能接受的。</p>
-<p>同时，除此之外每多使用一个 $+$，都会使答案增加，所以只需要在这些行中选恰好一个运算符改为 $+$ 即可。</p>
-<p>行大小为奇数的情况类似。</p>
-<ul>
-<li>对于行列大小均为奇数的情况，以 $7 × 9$ 为例：<br><img src="https://cdn.zhaohonghao-qwq.com/img/image.1e8hh1qpt8.webp" alt=""></li>
-</ul>
-<p>所有包含两个 $11$ 的行都必须使用一个 $+$，所有包含两个 $11$ 的列都必须使用一个 $+$。</p>
-<p>如图所示，观察位于交点的六个运算符，需要保证每行都有一个 $+$，每列都有一个 $+$。可以考虑斜着分配。</p>
-<p>通过搜索和合理的剪枝，能在可接受的时间内算出答案。</p>
-<p>考虑答案空间只有 $9 × 9$，可以搜出所有的答案硬编写在代码中。</p>
-]]></content>
+<p>先定义结构体，有两个参数：编号和成绩。接下来输入边输边存编号 <code>a[i].number = i</code>，后面写好自定义排序，定义映射类型（<del>主打一个方便</del>）的变量存 $\text{rank}$ 后输出即可。</p>
+<p>存 $\text{rank}$ 的代码如下：<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt;= n ; i ++)</span><br><span class="line">&#123;</span><br><span class="line">	Rank[a[i].number] = i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>解释一下就是 $Rank[$ 这个人的学号 $]=$ 这个人的名次（$a$ 已经从大到小排过序）。</p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> score;</span><br><span class="line">	<span class="type">int</span> number;</span><br><span class="line">&#125;a[<span class="number">100001</span>];</span><br><span class="line"></span><br><span class="line">map &lt;<span class="type">int</span> , <span class="type">int</span>&gt; Rank;</span><br><span class="line"><span class="type">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(node x , node y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x.score &gt; y.score;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	</span><br><span class="line">	cin &gt;&gt; a[<span class="number">1</span>].score;</span><br><span class="line">	a[<span class="number">1</span>].number = <span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> front = a[<span class="number">1</span>].score;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span> ; i &lt;= n ; i ++)</span><br><span class="line">	&#123;</span><br><span class="line">		cin &gt;&gt; a[i].score;</span><br><span class="line">		a[i].number = i;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(a[i].score != front)</span><br><span class="line">		&#123;</span><br><span class="line">			flag = <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(flag)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;Hahahai!&quot;</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">sort</span>(a + <span class="number">1</span> , a + n + <span class="number">1</span> , cmp);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt;= n ; i ++)</span><br><span class="line">	&#123;</span><br><span class="line">		Rank[a[i].number] = i;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(map &lt;<span class="type">int</span> , <span class="type">int</span>&gt; :: iterator it = Rank.<span class="built_in">begin</span>() ; it != Rank.<span class="built_in">end</span>() ; it ++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; it-&gt;second &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>洛谷题解</category>
+        <category>个人记录</category>
       </categories>
       <tags>
         <tag>题解</tag>
