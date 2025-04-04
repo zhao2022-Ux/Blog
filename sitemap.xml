@@ -11,60 +11,6 @@
   </url>
   
   <url>
-    <loc>https://blog.storical.space/personal/bb/</loc>
-    
-    <lastmod>2025-04-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.storical.space/site/census/</loc>
-    
-    <lastmod>2025-04-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.storical.space/personal/love/</loc>
-    
-    <lastmod>2025-04-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.storical.space/site/time/</loc>
-    
-    <lastmod>2025-04-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.storical.space/social/fcircle/</loc>
-    
-    <lastmod>2025-04-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.storical.space/social/link/</loc>
-    
-    <lastmod>2025-04-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.storical.space/life/games/</loc>
     
     <lastmod>2025-04-04</lastmod>
@@ -93,6 +39,60 @@
   
   <url>
     <loc>https://blog.storical.space/personal/about/</loc>
+    
+    <lastmod>2025-04-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.storical.space/personal/bb/</loc>
+    
+    <lastmod>2025-04-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.storical.space/personal/love/</loc>
+    
+    <lastmod>2025-04-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.storical.space/site/census/</loc>
+    
+    <lastmod>2025-04-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.storical.space/site/time/</loc>
+    
+    <lastmod>2025-04-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.storical.space/social/link/</loc>
+    
+    <lastmod>2025-04-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.storical.space/social/fcircle/</loc>
     
     <lastmod>2025-04-04</lastmod>
     
